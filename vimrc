@@ -20,8 +20,9 @@ endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
+set cursorline		" show a bar over the line with the cursor
 set incsearch		" do incremental searching
-set hlsearch            " highlight seach matches
+set hlsearch		" highlight seach matches
 
 " TODO: understand this
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
@@ -101,5 +102,13 @@ set foldenable
 set foldcolumn=2 " show +/- column like ide
 set foldmethod=syntax
 let perl_fold=1 "turn on folding in perl
+
+" TODO: figure out a way to add <A-S-Up> etc. that copies instead of moves
+" Bubble single lines
+nmap <A-Up> [e
+nmap <A-Down> ]e
+" Bubble multiple lines
+vmap <A-Up> [egv
+vmap <A-Down> ]egv
 
 
