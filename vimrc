@@ -1,12 +1,8 @@
 " To use this file create a file in $home called .vimrc (unix) or _vimrc (win)
 " and put the following line in it:
-"  source .vim/vimrc
+"  source $HOME/.vim/vimrc
 " or for windows:
-"  source vimfiles/vimrc
-"
-" Also notice that if you try to edit this file vim will get confused when
-" trying to source this file from the real .vimrc. That probalby doesn't
-" happen on unix :)
+"  source $HOME/vimfiles/vimrc
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
