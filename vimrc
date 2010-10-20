@@ -96,8 +96,9 @@ syntax on
 colorscheme molokai
 "colorscheme ir_black
 
-"turn on folding
+" Folding
 set foldenable
+set foldcolumn=1 " show +/- column like ide
 set foldmethod=syntax
 let perl_fold=1 "turn on folding in perl
 
