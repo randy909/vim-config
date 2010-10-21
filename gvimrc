@@ -1,7 +1,7 @@
 " To use create a .gvimrc file in $HOME that contains a line like this:
-"  source $HOME/.vim/gimrc
+"  source $HOME/.vim/gvimrc
 " or on windows:
-"  source $HOME/vimfiles/gimrc
+"  source $HOME/vimfiles/gvimrc
 
 " TODO: understand everything in this file
 " Make external commands work through a pipe instead of a pseudo-tty
