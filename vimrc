@@ -103,12 +103,4 @@ set foldcolumn=2 " show +/- column like ide
 set foldmethod=syntax
 let perl_fold=1 "turn on folding in perl
 
-" TODO: figure out a way to add <A-S-Up> etc. that copies instead of moves
-" Bubble single lines
-nmap <A-Up> [e
-nmap <A-Down> ]e
-" Bubble multiple lines
-vmap <A-Up> [egv
-vmap <A-Down> ]egv
-
 
