@@ -1,5 +1,8 @@
-" To use this file create a symlink to it from the home dir called .vimrc.
-" On Windows create a file in $home called _vimrc with this line in it:
+" To use create a (.|_)gvimrc file in $HOME that contains a line like this:
+" (you could do something similar with symlinks but it doesn't work well on
+" windows with cygwin)
+"  source $HOME/.vim/vimrc
+" or for windows:
 "  source $HOME/vimfiles/vimrc
 
 " Use Vim settings, rather than Vi settings (much better!).
