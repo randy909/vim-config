@@ -1,6 +1,5 @@
-" To use create a .gvimrc file in $HOME that contains a line like this:
-"  source $HOME/.vim/gvimrc
-" or on windows:
+" To use this file create a symlink to it from the home dir called .gvimrc.
+" On Windows create a file in $home called _gvimrc with this line in it:
 "  source $HOME/vimfiles/gvimrc
 
 " TODO: understand everything in this file

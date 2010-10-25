@@ -1,7 +1,5 @@
-" To use this file create a file in $home called .vimrc (unix) or _vimrc (win)
-" and put the following line in it:
-"  source $HOME/.vim/vimrc
-" or for windows:
+" To use this file create a symlink to it from the home dir called .vimrc.
+" On Windows create a file in $home called _vimrc with this line in it:
 "  source $HOME/vimfiles/vimrc
 
 " Use Vim settings, rather than Vi settings (much better!).
