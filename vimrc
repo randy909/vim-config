@@ -112,3 +112,6 @@ set enc=utf-8
 set listchars=tab:›\ ,eol:¬
 set list
 
+" make j/k go up/down by screen line instead of file line
+nnoremap j gj
+nnoremap k gk
