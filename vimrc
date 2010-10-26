@@ -105,4 +105,9 @@ set foldcolumn=2 " show +/- column like ide
 set foldmethod=syntax
 let perl_fold=1 "turn on folding in perl
 
+set enc=utf-8
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:»\ ,eol:¬
+set list
+
 
