@@ -4,6 +4,8 @@
 "  source $HOME/.vim/gvimrc
 " or on windows:
 "  source $HOME/vimfiles/gvimrc
+" Note: on cygwin the win32 gvim will read the .gvimrc and .vimrc files,
+" it doesn't have to be _gvimrc/_vimrc.
 
 " TODO: understand everything in this file
 " Make external commands work through a pipe instead of a pseudo-tty
