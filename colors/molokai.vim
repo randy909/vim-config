@@ -81,7 +81,9 @@ hi SignColumn      guifg=#A6E22E guibg=#232526
 hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
-hi SpecialKey      guifg=#888A85               gui=italic
+"hi SpecialKey      guifg=#888A85               gui=italic
+"make tab char match comment (dark grey)
+hi SpecialKey      guifg=#465457               gui=italic
 if has("spell")
     hi SpellBad    guisp=#FF0000 gui=undercurl
     hi SpellCap    guisp=#7070F0 gui=undercurl
@@ -120,7 +122,8 @@ else
    hi CursorLine                    guibg=#293739
    hi CursorColumn                  guibg=#293739
    hi LineNr          guifg=#BCBCBC guibg=#232526
-   hi NonText         guifg=#BCBCBC guibg=#232526
+   "hi NonText         guifg=#BCBCBC guibg=#232526
+   hi NonText         guifg=#465457 guibg=#1B1D1E
 end
 
 "
@@ -182,7 +185,9 @@ if &t_Co > 255
    hi SpecialChar     ctermfg=161               cterm=bold
    hi SpecialComment  ctermfg=245               cterm=bold
    hi Special         ctermfg=81  ctermbg=232
-   hi SpecialKey      ctermfg=245
+   "hi SpecialKey      ctermfg=245
+   "make tab character match comment (dark grey)
+   hi SpecialKey      ctermfg=59
 
    hi Statement       ctermfg=161               cterm=bold
    hi StatusLine      ctermfg=238 ctermbg=253
@@ -208,5 +213,8 @@ if &t_Co > 255
    hi CursorLine                  ctermbg=234   cterm=none
    hi CursorColumn                ctermbg=234
    hi LineNr          ctermfg=250 ctermbg=234
-   hi NonText         ctermfg=250 ctermbg=234
+"   hi NonText         ctermfg=250 ctermbg=234
+"   make end of line colors match comment (dark grey)
+   hi NonText         ctermfg=59 ctermbg=233
 end
+
