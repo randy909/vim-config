@@ -107,7 +107,8 @@ let perl_fold=1 "turn on folding in perl
 
 set enc=utf-8
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:»\ ,eol:¬
+" For consolas the available characters can be found here:
+" http://www.fileformat.info/info/unicode/font/consolas/grid.htm
+set listchars=tab:›\ ,eol:¬
 set list
-
 
