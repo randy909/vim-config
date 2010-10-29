@@ -120,3 +120,9 @@ nnoremap k gk
 " TODO: put a map here for shift-tab functionality (skip closing }])"etc.)
 imap <Esc>OH <Plug>delimitMateHome
 imap <Esc>OF <Plug>delimitMateEnd
+
+" map <C-/> to toggle comment and leave originals intact
+nmap  <Plug>NERDCommenterToggle
+vmap  <Plug>NERDCommenterToggle
+nmap ,c<space> <Plug>NERDCommenterToggle
+vmap ,c<space> <Plug>NERDCommenterToggle
