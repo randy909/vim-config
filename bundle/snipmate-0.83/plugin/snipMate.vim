@@ -245,3 +245,6 @@ fun! ShowAvailableSnips()
 	return ''
 endf
 " vim:noet:sw=4:ts=4:ft=vim
+
+" fix for win32 gvim being broke
+source $HOME/vimfiles/bundle/snipmate-0.83/after/plugin/snipMate.vim
