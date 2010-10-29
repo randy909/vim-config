@@ -115,3 +115,8 @@ set list
 " make j/k go up/down by screen line instead of file line
 nnoremap j gj
 nnoremap k gk
+
+" fix mintty home/end keys for delimitMate
+" TODO: put a map here for shift-tab functionality (skip closing }])"etc.)
+imap <Esc>OH <Plug>delimitMateHome
+imap <Esc>OF <Plug>delimitMateEnd
