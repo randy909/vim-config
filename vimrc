@@ -8,7 +8,12 @@
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-behave mswin "TODO: what are all the consequences? I like ctrl -> etc.
+
+" My own halfway point between behave mswin and xterm
+" TODO: do I want to source mswin.vim here? probably don't want to kill <C-x>
+set mousemodel=popup " right click should popup not extend
+set keymodel=startsel,stopsel " allow shift-<end> style selection
+set selection=inclusive " include last char on line when mouse selecting
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -122,6 +127,7 @@ imap <Esc>OH <Plug>delimitMateHome
 imap <Esc>OF <Plug>delimitMateEnd
 
 " map <C-/> to toggle comment and leave originals intact
+" TODO: this mapping doesn't work on gvim
 nmap  <Plug>NERDCommenterToggle
 vmap  <Plug>NERDCommenterToggle
 nmap ,c<space> <Plug>NERDCommenterToggle
