@@ -15,6 +15,11 @@ set mousemodel=popup " right click should popup not extend
 set keymodel=startsel,stopsel " allow shift-<end> style selection
 set selection=inclusive " include last char on line when mouse selecting
 
+" make visual block work the way it should (go past end of line).
+" might also want to experiment with "onemore" in addition to "block" -
+" it lets you put the cursor on the eol character rather than one before it.
+set virtualedit=block
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
