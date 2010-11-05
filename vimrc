@@ -133,7 +133,16 @@ imap <Esc>OF <Plug>delimitMateEnd
 
 " map <C-/> to toggle comment and leave originals intact
 " TODO: this mapping doesn't work on gvim
+" there is a different way to map strange characters: <Char-234> where 324 is
+" the ascii number for that code. That *might* fix this. See the Yankring help
+" and search for <Char- to find the part that explains this.
 nmap  <Plug>NERDCommenterToggle
 vmap  <Plug>NERDCommenterToggle
 nmap ,c<space> <Plug>NERDCommenterToggle
 vmap ,c<space> <Plug>NERDCommenterToggle
+
+" map <F3> to show/close YankRing buffer
+" TODO: it would be cool if when you F3 from insert mode it would go back to 
+" insert mode after you paste
+nnoremap <silent> <F3> :YRShow<cr>
+inoremap <silent> <F3> <ESC>:YRShow<cr>
