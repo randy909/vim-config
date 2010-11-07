@@ -107,7 +107,11 @@ endif
 syntax on
 "let g:molokai_original=1
 colorscheme molokai
-"colorscheme ir_black
+"
+" Put backup and swap files somewhere other that pwd
+" ~ seems to work on windows as well
+set directory=~/tmp//,~//,. " trailing slash prevents name collisions
+set backupdir=~/tmp,~/,.
 
 " Folding
 set foldenable
