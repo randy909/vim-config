@@ -5,6 +5,9 @@
 " or for windows:
 "  source $HOME/vimfiles/vimrc
 
+" Tips:
+" Use 'ga' in normal mode to get the ascii value of the char under the cursor.
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -23,12 +26,6 @@ set virtualedit=block
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" TODO: understand this
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -107,9 +104,10 @@ endif
 syntax on
 "let g:molokai_original=1
 colorscheme molokai
-"
+
 " Put backup and swap files somewhere other that pwd
 " ~ seems to work on windows as well
+set backup " keep a backup file
 set directory=~/tmp//,~//,. " trailing slash prevents name collisions
 set backupdir=~/tmp,~/,.
 
@@ -132,16 +130,17 @@ nnoremap k gk
 
 " fix mintty home/end keys for delimitMate
 " TODO: put a map here for shift-tab functionality (skip closing }])"etc.)
+" because shift-tab is hogged by snipmate.
 imap <Esc>OH <Plug>delimitMateHome
 imap <Esc>OF <Plug>delimitMateEnd
 
-" map <C-/> to toggle comment and leave originals intact
-" TODO: this mapping doesn't work on gvim
-" there is a different way to map strange characters: <Char-234> where 324 is
-" the ascii number for that code. That *might* fix this. See the Yankring help
-" and search for <Char- to find the part that explains this.
+" map <C-/> and <A-/> to toggle comment and leave originals intact
+" <A-/> is a workaround for gvim not allowing <C-/> mapping
+" TODO: submit a patch to gvim to fix this.
 nmap  <Plug>NERDCommenterToggle
 vmap  <Plug>NERDCommenterToggle
+nmap <A-/> <Plug>NERDCommenterToggle
+vmap <A-/> <Plug>NERDCommenterToggle
 nmap ,c<space> <Plug>NERDCommenterToggle
 vmap ,c<space> <Plug>NERDCommenterToggle
 
