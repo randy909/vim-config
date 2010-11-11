@@ -131,16 +131,22 @@ nnoremap k gk
 " fix mintty home/end keys for delimitMate
 " TODO: put a map here for shift-tab functionality (skip closing }])"etc.)
 " because shift-tab is hogged by snipmate.
-imap <Esc>OH <Plug>delimitMateHome
-imap <Esc>OF <Plug>delimitMateEnd
+if !has("gui_running")
+  exec "set <Home>=OH"
+  exec "set <End>=OF"
+endif
 
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
-nmap  <Plug>NERDCommenterToggle
-vmap  <Plug>NERDCommenterToggle
-nmap <A-/> <Plug>NERDCommenterToggle
-vmap <A-/> <Plug>NERDCommenterToggle
+if has("gui_running")
+  nmap <A-/> <Plug>NERDCommenterToggle
+  vmap <A-/> <Plug>NERDCommenterToggle
+else
+  nmap  <Plug>NERDCommenterToggle
+  vmap  <Plug>NERDCommenterToggle
+endif
+
 nmap ,c<space> <Plug>NERDCommenterToggle
 vmap ,c<space> <Plug>NERDCommenterToggle
 
@@ -149,3 +155,40 @@ vmap ,c<space> <Plug>NERDCommenterToggle
 " insert mode after you paste
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
+
+" Set tabstop, softtabstop and shiftwidth to the same value.
+" Use :Stab<enter> to set all tab settings at once.
+" TODO: put this in its own file.
+command! -nargs=* Stab call Stab()
+function! Stab()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
+endfunction
+ 
+function! SummarizeTabs()
+  try
+    echohl ModeMsg
+    echon 'tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
+endfunction
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+set visualbell t_vb= " turn off bells in all forms

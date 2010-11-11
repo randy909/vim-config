@@ -39,6 +39,7 @@ set guifont=consolas
 set lines=60
 set columns=130
 
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
 
+set t_vb= " don't flash window even in gui mode
