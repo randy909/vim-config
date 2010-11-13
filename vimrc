@@ -12,6 +12,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+runtime funrc.vim
+
 " My own halfway point between behave mswin and xterm
 " TODO: do I want to source mswin.vim here? probably don't want to kill <C-x>
 set mousemodel=popup " right click should popup not extend
@@ -26,12 +28,44 @@ set virtualedit=block
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set cursorline		" show a bar over the line with the cursor
-set incsearch		" do incremental searching
-set hlsearch		" highlight seach matches
+set history=50      " keep 50 lines of command line history
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set cursorline      " show a bar over the line with the cursor
+set incsearch       " do incremental searching
+set hlsearch        " highlight seach matches
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+set visualbell t_vb= " turn off bells in all forms
+
+" Put backup and swap files somewhere other that pwd
+" ~ seems to work on windows as well
+set backup " keep a backup file
+set directory=~/tmp//,~//,. " trailing slash prevents name collisions
+set backupdir=~/tmp,~/,.
+
+" Folding
+set foldenable
+set foldcolumn=2 " show +/- column like ide
+set foldlevel=99 " start with all folds open
+set foldmethod=syntax
+let perl_fold=1 "turn on folding in perl
+
+set enc=utf-8
+" Use the same symbols as TextMate for tabstops and EOLs
+" For consolas the available characters can be found here:
+" http://www.fileformat.info/info/unicode/font/consolas/grid.htm
+set listchars=tab:›\ ,eol:¬
+set list
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
 
 " TODO: understand this
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
@@ -45,11 +79,6 @@ map Q gq
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -105,25 +134,6 @@ syntax on
 "let g:molokai_original=1
 colorscheme molokai
 
-" Put backup and swap files somewhere other that pwd
-" ~ seems to work on windows as well
-set backup " keep a backup file
-set directory=~/tmp//,~//,. " trailing slash prevents name collisions
-set backupdir=~/tmp,~/,.
-
-" Folding
-set foldenable
-set foldcolumn=2 " show +/- column like ide
-set foldmethod=syntax
-let perl_fold=1 "turn on folding in perl
-
-set enc=utf-8
-" Use the same symbols as TextMate for tabstops and EOLs
-" For consolas the available characters can be found here:
-" http://www.fileformat.info/info/unicode/font/consolas/grid.htm
-set listchars=tab:›\ ,eol:¬
-set list
-
 " make j/k go up/down by screen line instead of file line
 nnoremap j gj
 nnoremap k gk
@@ -155,43 +165,6 @@ vmap ,c<space> <Plug>NERDCommenterToggle
 " insert mode after you paste
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
-
-" Set tabstop, softtabstop and shiftwidth to the same value.
-" Use :Stab<enter> to set all tab settings at once.
-" TODO: put this in its own file.
-command! -nargs=* Stab call Stab()
-function! Stab()
-  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-  if l:tabstop > 0
-    let &l:sts = l:tabstop
-    let &l:ts = l:tabstop
-    let &l:sw = l:tabstop
-  endif
-  call SummarizeTabs()
-endfunction
- 
-function! SummarizeTabs()
-  try
-    echohl ModeMsg
-    echon 'tabstop='.&l:ts
-    echon ' shiftwidth='.&l:sw
-    echon ' softtabstop='.&l:sts
-    if &l:et
-      echon ' expandtab'
-    else
-      echon ' noexpandtab'
-    endif
-  finally
-    echohl None
-  endtry
-endfunction
-
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-
-set visualbell t_vb= " turn off bells in all forms
 
 " Give Textmate's indentation commands a whirl
 if has("gui_running")
