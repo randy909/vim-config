@@ -161,7 +161,7 @@ nmap ,c<space> <Plug>NERDCommenterToggle
 vmap ,c<space> <Plug>NERDCommenterToggle
 
 " map <F3> to show/close YankRing buffer
-" TODO: it would be cool if when you F3 from insert mode it would go back to 
+" TODO: it would be cool if when you F3 from insert mode it would go back to
 " insert mode after you paste
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
@@ -173,3 +173,14 @@ if has("gui_running")
   vmap <A-[> <gv
   vmap <A-]> >gv
 endif
+
+" Deletes trailing whitespace for the entire file.
+nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
+
+" Highlight trailing whitespace except current line.
+" I chose ErrorMsg because in molokai its a very dark grey as I don't need
+" too much highlighting because I'm already printing the eol character.
+match ErrorMsg /\s\+\%#\@<!$/
+
+" Indents (=) the entire file.
+nmap ,= :call Preserve("normal gg=G")<CR>
