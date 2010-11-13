@@ -192,3 +192,11 @@ set shiftwidth=4
 set expandtab
 
 set visualbell t_vb= " turn off bells in all forms
+
+" Give Textmate's indentation commands a whirl
+if has("gui_running")
+  nmap <A-[> <<
+  nmap <A-]> >>
+  vmap <A-[> <gv
+  vmap <A-]> >gv
+endif
