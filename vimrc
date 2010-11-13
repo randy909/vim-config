@@ -178,9 +178,10 @@ endif
 nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
 
 " Highlight trailing whitespace except current line.
-" I chose ErrorMsg because in molokai its a very dark grey as I don't need
-" too much highlighting because I'm already printing the eol character.
-match ErrorMsg /\s\+\%#\@<!$/
+" I chose a dark grey from molokai because I don't need
+" too much highlighting - I'm already printing the eol character.
+highlight ExtraWhitespace ctermbg=16 guibg=#232526
+match ExtraWhitespace /\s\+\%#\@<!$/
 
 " Indents (=) the entire file.
 nmap ,= :call Preserve("normal gg=G")<CR>
