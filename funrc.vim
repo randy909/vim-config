@@ -10,7 +10,7 @@ function! Stab()
   endif
   call SummarizeTabs()
 endfunction
- 
+
 function! SummarizeTabs()
   try
     echohl ModeMsg
