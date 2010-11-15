@@ -28,19 +28,19 @@ set virtualedit=block
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set history=50      " keep 50 lines of command line history
-set ruler           " show the cursor position all the time
-set showcmd         " display incomplete commands
-set cursorline      " show a bar over the line with the cursor
-set incsearch       " do incremental searching
-set hlsearch        " highlight seach matches
+set history=50       " keep 50 lines of command line history
+set ruler            " show the cursor position all the time
+set showcmd          " display incomplete commands
+set cursorline       " show a bar over the line with the cursor
+set incsearch        " do incremental searching
+set hlsearch         " highlight seach matches
+set visualbell t_vb= " turn off bells in all forms
+set hidden           " allow unwritten buffers to hide
 
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-
-set visualbell t_vb= " turn off bells in all forms
 
 " Put backup and swap files somewhere other that pwd
 " ~ seems to work on windows as well
