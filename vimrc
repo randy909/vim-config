@@ -7,6 +7,9 @@
 
 " Tips:
 " Use 'ga' in normal mode to get the ascii value of the char under the cursor.
+" TODO: make a 'tips' file for stuff like this
+" Use '\v' while searching to enable 'very magic' regexes (like Perl).
+" Use :noh to remove current search highlights.
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -28,25 +31,40 @@ set virtualedit=block
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set history=50       " keep 50 lines of command line history
-set ruler            " show the cursor position all the time
-set showcmd          " display incomplete commands
-set cursorline       " show a bar over the line with the cursor
-set incsearch        " do incremental searching
-set hlsearch         " highlight seach matches
-set visualbell t_vb= " turn off bells in all forms
-set hidden           " allow unwritten buffers to hide
+set encoding=utf-8  " utf-8 is great
+set history=50      " keep 50 lines of command line history
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set cursorline      " show a bar over the line with the cursor
+set hidden          " allow unwritten buffers to hide
+set ttyfast         " draw smoother if terminal is fast
+set scrolloff=3     " keep 3 lines visible at top/bottom
+set visualbell t_vb=      " turn off bells in all forms
 
+" wildmenu/mode does cool autocompletion on the command line
+set wildmenu
+set wildmode=list:longest,full
+
+" search settings
+set incsearch       " do incremental searching
+set hlsearch        " highlight seach matches
+set ignorecase      " ignore case if all lowercase
+set smartcase       " match uppercase if any characters are upper
+set gdefault        " default s///g on substitutions
+
+" tab settings
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-" Put backup and swap files somewhere other that pwd
+" Put backup, undo, and swap files somewhere other that pwd
 " ~ seems to work on windows as well
-set backup " keep a backup file
+set backup   " keep a backup file
+set undofile " keep a undo file
 set directory=~/tmp//,~//,. " trailing slash prevents name collisions
 set backupdir=~/tmp,~/,.
+set undodir=~/tmp,~/,.
 
 " Folding
 set foldenable
@@ -55,7 +73,6 @@ set foldlevel=99 " start with all folds open
 set foldmethod=syntax
 let perl_fold=1 "turn on folding in perl
 
-set enc=utf-8
 " Use the same symbols as TextMate for tabstops and EOLs
 " For consolas the available characters can be found here:
 " http://www.fileformat.info/info/unicode/font/consolas/grid.htm
@@ -137,6 +154,9 @@ colorscheme molokai
 " make j/k go up/down by screen line instead of file line
 nnoremap j gj
 nnoremap k gk
+
+" use ; for : too so I don't have to hit <shift>
+nnoremap ; :
 
 " fix mintty home/end keys for delimitMate
 " TODO: put a map here for shift-tab functionality (skip closing }])"etc.)
