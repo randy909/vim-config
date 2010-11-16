@@ -18,10 +18,6 @@
 
 set mousehide		" Hide the mouse when typing text
 
-" Make shift-insert work like in Xterm
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
-
 " TODO: does this change anything? seems like the default now...
 " I like highlighting strings inside C comments
 let c_comment_strings=1
@@ -43,3 +39,4 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 
 set t_vb= " don't flash window even in gui mode
+
