@@ -15,21 +15,14 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-runtime funrc.vim
-
-" My own halfway point between behave mswin and xterm
-" TODO: do I want to source mswin.vim here? probably don't want to kill <C-x>
-set mousemodel=popup " right click should popup not extend
-set keymodel=startsel,stopsel " allow shift-<end> style selection
-set selection=inclusive " include last char on line when mouse selecting
+" source the files living next to this one
+source <sfile>:p:h/mswin.vim
+source <sfile>:p:h/funrc.vim
 
 " make visual block work the way it should (go past end of line).
 " might also want to experiment with "onemore" in addition to "block" -
 " it lets you put the cursor on the eol character rather than one before it.
 set virtualedit=block
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
 set cursorline      " show a bar over the line with the cursor
 set encoding=utf-8  " utf-8 is great
@@ -145,7 +138,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+          \ | wincmd p | diffthis
 endif
 
 syntax on
