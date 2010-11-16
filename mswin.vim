@@ -30,7 +30,7 @@ vnoremap <C-X>      "+x
 vnoremap <S-Del>    "+x
 
 " CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C>      "+y
+vnoremap <C-C>      "+ygv
 vnoremap <C-Insert> "+y
 
 " CTRL-V and SHIFT-Insert are Paste
@@ -68,6 +68,17 @@ endif
 " CTRL-Z is Undo; not in cmdline though
 noremap  <C-Z> u
 inoremap <C-Z> <C-O>u
+
+" CTRL-A is Select all
+noremap  <C-A> ggVG
+inoremap <C-A> <C-O>gg<C-O>VG
+cnoremap <C-A> <C-C>ggVG
+onoremap <C-A> <C-C>ggVG
+snoremap <C-A> <C-C>ggVG
+xnoremap <C-A> <C-C>ggVG
+
+" Use <F12> to do what <C-A> used to (increment number under cursor)
+noremap <F12> <C-A>
 
 " TODO: hmmm, didn't know this would work, could maybe use this for snipmate
 " complete or delimitmate skip since snipmate steals <s-tab> or I could just
