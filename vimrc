@@ -111,7 +111,6 @@ if has("autocmd")
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
-" TODO: do I like this? i guess...
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -126,13 +125,10 @@ if has("autocmd")
 
 else
 
-" TODO: understand this why in the 'else' of if autocmd
-  set autoindent		" always set autoindenting on
+  set autoindent        " always set autoindenting on
 
 endif " has("autocmd")
 
-" TODO: learn how to get out of this safely (<C-W>, left arrow moves to the
-" left pane then you can :q out of that one and everything is back to normal)
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -188,6 +184,9 @@ if has("gui_running")
   vmap <A-]> >gv
 endif
 
+" Indents (=) the entire file.
+nmap ,= :call Preserve("normal gg=G")<CR>
+
 " Deletes trailing whitespace for the entire file.
 nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
 
@@ -196,6 +195,3 @@ nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
 " too much highlighting - I'm already printing the eol character.
 highlight ExtraWhitespace ctermbg=16 guibg=#232526
 match ExtraWhitespace /\s\+\%#\@<!$/
-
-" Indents (=) the entire file.
-nmap ,= :call Preserve("normal gg=G")<CR>
