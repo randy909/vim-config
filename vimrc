@@ -31,14 +31,15 @@ set virtualedit=block
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+set cursorline      " show a bar over the line with the cursor
 set encoding=utf-8  " utf-8 is great
+set hidden          " allow unwritten buffers to hide
 set history=50      " keep 50 lines of command line history
 set ruler           " show the cursor position all the time
-set showcmd         " display incomplete commands
-set cursorline      " show a bar over the line with the cursor
-set hidden          " allow unwritten buffers to hide
-set ttyfast         " draw smoother if terminal is fast
 set scrolloff=3     " keep 3 lines visible at top/bottom
+set showcmd         " display incomplete commands
+set ttimeoutlen=10  " make vim exit search/visual with <exc> quickly"
+set ttyfast         " draw smoother if terminal is fast
 set visualbell t_vb=      " turn off bells in all forms
 
 " wildmenu/mode does cool autocompletion on the command line
