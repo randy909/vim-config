@@ -24,16 +24,17 @@ source <sfile>:p:h/funrc.vim
 " it lets you put the cursor on the eol character rather than one before it.
 set virtualedit=block
 
-set cursorline      " show a bar over the line with the cursor
-set encoding=utf-8  " utf-8 is great
-set hidden          " allow unwritten buffers to hide
-set history=50      " keep 50 lines of command line history
-set ruler           " show the cursor position all the time
-set scrolloff=3     " keep 3 lines visible at top/bottom
-set showcmd         " display incomplete commands
-set ttimeoutlen=10  " make vim exit search/visual with <exc> quickly"
-set ttyfast         " draw smoother if terminal is fast
-set visualbell t_vb=      " turn off bells in all forms
+set cursorline         " show a bar over the line with the cursor
+set encoding=utf-8     " utf-8 is great
+set display=lastline   " display partial lines at end of screen
+set hidden             " allow unwritten buffers to hide
+set history=50         " keep 50 lines of command line history
+set ruler              " show the cursor position all the time
+set scrolloff=3        " keep 3 lines visible at top/bottom
+set showcmd            " display incomplete commands
+set ttimeoutlen=10     " make vim exit search/visual with <exc> quickly"
+set ttyfast            " draw smoother if terminal is fast
+set visualbell t_vb=   " turn off bells in all forms
 
 " wildmenu/mode does cool autocompletion on the command line
 set wildmenu
