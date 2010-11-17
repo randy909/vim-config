@@ -51,6 +51,7 @@ exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
 imap <S-Insert>     <C-V>
 vmap <S-Insert>     <C-V>
 
+" TODO: this doesn't work in the terminal, fix. (alt-mouse does though)
 " Use CTRL-Q to do what CTRL-V used to do
 noremap <C-Q>       <C-V>
 
