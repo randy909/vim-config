@@ -122,6 +122,11 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
 
+  " Make first click in window *not* reposition cursor (might break lastpos
+  " plugin) http://www.mail-archive.com/vim_use@googlegroups.com/msg17539.html
+  " TODO: make this work in terminal
+  autocmd FocusGained * call getchar(0)
+
   augroup END
 
 else
