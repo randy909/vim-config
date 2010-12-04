@@ -36,6 +36,10 @@ set ttimeoutlen=10     " make vim exit search/visual with <exc> quickly"
 set ttyfast            " draw smoother if terminal is fast
 set visualbell t_vb=   " turn off bells in all forms
 
+" make cursor into a line that blinks a little slower
+set guicursor+=n-v-c:ver25-Cursor/lCursor
+set guicursor+=a:blinkwait500-blinkoff500-blinkon500
+
 " wildmenu/mode does cool autocompletion on the command line
 set wildmenu
 set wildmode=list:longest,full
