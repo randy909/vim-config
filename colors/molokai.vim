@@ -60,7 +60,12 @@ hi Label           guifg=#E6DB74               gui=none
 hi Macro           guifg=#C4BE89               gui=italic
 hi SpecialKey      guifg=#66D9EF               gui=italic
 
-hi MatchParen      guifg=#000000 guibg=#FD971F gui=bold
+" original colors
+"hi MatchParen      guifg=#000000 guibg=#FD971F gui=bold
+" tried not using block highlight worked ok, went back to block
+"hi MatchParen      guifg=fg      guibg=#000000 gui=underline,bold
+" use MatchParen colors from ir_black, much less ambiguous
+hi MatchParen      guifg=#f6f3e8 guibg=#857b6f gui=bold
 hi ModeMsg         guifg=#E6DB74
 hi MoreMsg         guifg=#E6DB74
 hi Operator        guifg=#F92672
@@ -163,7 +168,9 @@ if &t_Co > 255
    hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
 
-   hi MatchParen      ctermfg=16  ctermbg=208 cterm=bold
+"   hi MatchParen      ctermfg=16  ctermbg=208 cterm=bold
+"   use MatchParen colors from ir_black
+   hi  MatchParen     ctermfg=white ctermbg=darkgray cterm=NONE
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=161
