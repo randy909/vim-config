@@ -201,3 +201,6 @@ nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
 " too much highlighting - I'm already printing the eol character.
 highlight ExtraWhitespace ctermbg=16 guibg=#232526
 match ExtraWhitespace /\s\+\%#\@<!$/
+
+" TODO: update delimitmate config to be smarter (get latest version, see
+" issues on github)
