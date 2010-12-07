@@ -180,6 +180,10 @@ endif
 nmap ,c<space> <Plug>NERDCommenterToggle
 vmap ,c<space> <Plug>NERDCommenterToggle
 
+" map <F2> to toggle NERDTree
+nnoremap <silent> <F2> :NERDTreeToggle<cr>
+inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
+
 " map <F3> to show/close YankRing buffer
 " TODO: it would be cool if when you F3 from insert mode it would go back to
 " insert mode after you paste
