@@ -166,6 +166,9 @@ if !has("gui_running")
   exec "set <End>=OF"
 endif
 
+" make delimitmate act "smart" like eclipse
+let g:delimitMate_smart_matchpairs = '^\%(\w\|\!\|£\|\$\|_\|["'']\s*\S\)'
+
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
@@ -209,6 +212,3 @@ nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
 " too much highlighting - I'm already printing the eol character.
 highlight ExtraWhitespace ctermbg=16 guibg=#232526
 match ExtraWhitespace /\s\+\%#\@<!$/
-
-" TODO: update delimitmate config to be smarter (get latest version, see
-" issues on github)
