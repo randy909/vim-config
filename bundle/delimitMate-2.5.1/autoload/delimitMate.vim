@@ -252,13 +252,21 @@ function! delimitMate#ParenDelim(char) " {{{
 	if delimitMate#IsForbidden(a:char)
 		return ''
 	endif
+	" Try to balance matchpairs
 	if b:_l_delimitMate_balance_matchpairs &&
 				\ delimitMate#BalancedParens(a:char) <= 0
 		return ''
 	endif
 	let line = getline('.')
 	let col = col('.')-2
-	if (col) < 0
+	let left = b:_l_delimitMate_left_delims[index(b:_l_delimitMate_right_delims,a:char)]
+	let smart_matchpairs = substitute(b:_l_delimitMate_smart_matchpairs, '\\!', left, 'g')
+	let smart_matchpairs = substitute(smart_matchpairs, '\\#', a:char, 'g')
+	"echom left.':'.smart_matchpairs . ':' . matchstr(line[col+1], smart_matchpairs)
+	if b:_l_delimitMate_smart_matchpairs != '' &&
+				\ line[col+1:] =~ smart_matchpairs
+		return ''
+	elseif (col) < 0
 		call setline('.',a:char.line)
 		call insert(b:_l_delimitMate_buffer, a:char)
 	else
@@ -282,10 +290,10 @@ function! delimitMate#QuoteDelim(char) "{{{
 				\ index(b:_l_delimitMate_nesting_quotes, a:char) < 0
 		" Get out of the string.
 		return a:char . delimitMate#Del()
-	elseif (line[col] =~ '[[:alnum:]]' && a:char == "'") ||
+	elseif (line[col] =~ '\w' && a:char == "'") ||
 				\ (b:_l_delimitMate_smart_quotes &&
-				\ (line[col] =~ '[[:alnum:]]' ||
-				\ line[col + 1] =~ '[[:alnum:]]'))
+				\ (line[col] =~ '\w' ||
+				\ line[col + 1] =~ '\w'))
 		" Seems like an apostrophe or a smart quote case, insert a single quote.
 		return a:char
 	elseif (line[col] == a:char && line[col + 1 ] != a:char) && b:_l_delimitMate_smart_quotes
@@ -337,6 +345,32 @@ function! delimitMate#JumpAny(key) " {{{
 		return char . delimitMate#Del()
 	endif
 endfunction " delimitMate#JumpAny() }}}
+
+function! delimitMate#JumpMany() " {{{
+	let line = getline('.')[col('.') - 1 : ]
+	let len = len(line)
+	let rights = ""
+	let found = 0
+	let i = 0
+	while i < len
+		let char = line[i]
+		if index(b:_l_delimitMate_quotes_list, char) >= 0 ||
+					\ index(b:_l_delimitMate_right_delims, char) >= 0
+			let rights .= "\<Right>"
+			let found = 1
+		elseif found == 0
+			let rights .= "\<Right>"
+		else
+			break
+		endif
+		let i += 1
+	endwhile
+	if found == 1
+		return rights
+	else
+		return ''
+	endif
+endfunction " delimitMate#JumpMany() }}}
 
 function! delimitMate#MapMsg(msg) "{{{
 	redraw
@@ -401,7 +435,7 @@ function! delimitMate#Del() " {{{
 	endif
 endfunction " }}}
 
-function! delimitMate#Finish() " {{{
+function! delimitMate#Finish(move_back) " {{{
 	let len = len(b:_l_delimitMate_buffer)
 	if len > 0
 		let buffer = join(b:_l_delimitMate_buffer, '')
@@ -417,8 +451,8 @@ function! delimitMate#Finish() " {{{
 			call setline('.', line[:col] . line[col+len2+1:])
 		endif
 		let i = 1
-		let lefts = "\<Left>"
-		while i < len
+		let lefts = ""
+		while i <= len && a:move_back
 			let lefts = lefts . "\<Left>"
 			let i += 1
 		endwhile
@@ -453,7 +487,7 @@ function! delimitMate#TestMappings() "{{{
 				\ b:_l_delimitMate_apostrophes_list +
 				\ ['<BS>', '<S-BS>', '<Del>', '<S-Tab>', '<Esc>'] +
 				\ ['<Up>', '<Down>', '<Left>', '<Right>', '<LeftMouse>', '<RightMouse>'] +
-				\ ['<Home>', '<End>', '<PageUp>', '<PageDown>', '<S-Down>', '<S-Up>']
+				\ ['<Home>', '<End>', '<PageUp>', '<PageDown>', '<S-Down>', '<S-Up>', '<C-G>g']
 	let imaps = imaps + ( b:_l_delimitMate_expand_cr ?  ['<CR>'] : [] )
 	let imaps = imaps + ( b:_l_delimitMate_expand_space ?  ['<Space>'] : [] )
 
@@ -473,7 +507,6 @@ function! delimitMate#TestMappings() "{{{
 			let ibroken = ibroken + [map.": is not set:"] + split(output, '\n')
 		endif
 	endfor
-	let ibroken = len(ibroken) > 0 ? ['IMAP'] + ibroken : []
 
 	unlet! output
 	if ibroken == []
@@ -496,7 +529,7 @@ function! delimitMate#TestMappings() "{{{
 		endfor
 		for i in range(len(b:_l_delimitMate_quotes_list))
 			exec "normal GGAOpen: " . b:_l_delimitMate_quotes_list[i]	. "|"
-			exec "normal oDelete: " . b:_l_delimitMate_left_delims[i] . b:_l_delimitMate_right_delims[i] . "\<BS>|"
+			exec "normal oDelete: " . b:_l_delimitMate_quotes_list[i] . "\<BS>|"
 			exec "normal oExit: " . b:_l_delimitMate_quotes_list[i] . b:_l_delimitMate_quotes_list[i] . "|"
 			exec "normal oSpace: " . b:_l_delimitMate_quotes_list[i] . " |"
 			exec "normal oDelete space: " . b:_l_delimitMate_quotes_list[i] . " \<BS>|"
@@ -528,7 +561,7 @@ function! delimitMate#TestMappings() "{{{
 endfunction "}}}
 
 function! delimitMate#OptionsList() "{{{
-	return {'autoclose' : 1,'matchpairs': &matchpairs, 'quotes' : '" '' `', 'nesting_quotes' : [], 'expand_cr' : 0, 'expand_space' : 0, 'smart_quotes' : 1, 'balance_matchpairs' : 0, 'excluded_regions' : 'Comment', 'excluded_ft' : '', 'apostrophes' : ''}
+	return {'autoclose' : 1,'matchpairs': &matchpairs, 'quotes' : '" '' `', 'nesting_quotes' : [], 'expand_cr' : 0, 'expand_space' : 0, 'smart_quotes' : 1, 'smart_matchpairs' : '\w', 'balance_matchpairs' : 0, 'excluded_regions' : 'Comment', 'excluded_ft' : '', 'apostrophes' : ''}
 endfunction " delimitMate#OptionsList }}}
 "}}}
 
