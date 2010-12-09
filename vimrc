@@ -170,6 +170,9 @@ endif
 " make delimitmate act "smart" like eclipse
 let g:delimitMate_smart_matchpairs = '^\%(\w\|\!\|£\|\$\|_\|["'']\s*\S\)'
 
+" make delimitmate put extra <cr> after open bracket
+let delimitMate_expand_cr = 1
+
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
