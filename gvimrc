@@ -14,9 +14,10 @@
 " set the X11 font to use
 " set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
 
-"set ch=2		" Make command line two lines high
+"set ch=2               " Make command line two lines high
 
-set mousehide		" Hide the mouse when typing text
+set mousehide           " Hide the mouse when typing text
+set mousefocus          " activate window with mouse over it automatically
 
 " TODO: does this change anything? seems like the default now...
 " I like highlighting strings inside C comments
