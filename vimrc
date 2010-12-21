@@ -33,6 +33,7 @@ set lazyredraw         " don't update screen wile executing macros
 set ruler              " show the cursor position all the time
 set scrolloff=3        " keep 3 lines visible at top/bottom
 set showcmd            " display incomplete commands
+set tags=tags;/        " look for tags file all the way down to root
 set ttimeoutlen=10     " make vim exit search/visual with <exc> quickly"
 set ttyfast            " draw smoother if terminal is fast
 set visualbell t_vb=   " turn off bells in all forms
@@ -172,6 +173,9 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\!\|£\|\$\|_\|["'']\s*\S\)'
 
 " make delimitmate put extra <cr> after open bracket
 let delimitMate_expand_cr = 1
+
+" enable all modes for FuzzyFinder
+let g:fuf_modesDisable = []
 
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
