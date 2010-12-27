@@ -177,6 +177,10 @@ let delimitMate_expand_cr = 1
 " enable all modes for FuzzyFinder
 let g:fuf_modesDisable = []
 
+" CommandT prefs
+let g:CommandTMatchWindowAtTop=1
+let g:CommandTMaxHeight=30
+
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
