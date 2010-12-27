@@ -1,0 +1,15 @@
+download/install ruby192 to c:\Ruby192 from rubyinstallers.org
+download/install devkit to c:\Devkit 4.5.1 from rubyinstallers.org
+    (you can also install Devkit here to build ruby plugins like command-t)
+get vim code from mercurial (the version i got was 7.3.087)
+    - get the "tip" not a branch
+open dos window
+go to devkit and run the script that sets env vars
+go to "vim checkout dir"/src
+    read the INSTALLpc.txt for a refresher
+update Make_ming.mak to have the right ruby version
+apply any other patches like the off_t fix
+run:
+make -B -f Make_ming.mak OLE=yes gvim.exe RUBY=C:/Ruby192
+copy gvim.exe to program files/vim...
+copy several required .dll's (like libstdc++-6.dll) to vim/vim73 from devkit (mingw)
