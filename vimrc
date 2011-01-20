@@ -181,6 +181,14 @@ let g:fuf_modesDisable = []
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxHeight=30
 
+" look for ack in home/bin
+" TODO: figure out a good system for having ack installed somwhere this plugin
+" can find it every time. maybe install it in the vimfiles directory
+" or figure out how to use $HOME/bin from the 'let blah' variables
+if has("gui_running")
+  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
+endif
+
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
