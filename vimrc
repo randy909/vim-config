@@ -68,11 +68,11 @@ set backupdir=~/tmp,~/,.
 set undodir=~/tmp,~/,.
 
 " Folding
-set foldenable
-set foldcolumn=2 " show +/- column like ide
-set foldlevel=99 " start with all folds open
-set foldmethod=syntax
-let perl_fold=1 "turn on folding in perl
+set nofoldenable
+"set foldcolumn=2 " show +/- column like ide
+"set foldlevel=99 " start with all folds open
+"set foldmethod=syntax
+"let perl_fold=1 "turn on folding in perl
 
 " Use the same symbols as TextMate for tabstops and EOLs
 " For consolas the available characters can be found here:
