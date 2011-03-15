@@ -232,3 +232,8 @@ nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
 " too much highlighting - I'm already printing the eol character.
 highlight ExtraWhitespace ctermbg=16 guibg=#232526
 match ExtraWhitespace /\s\+\%#\@<!$/
+
+
+" TODO: install the syntastic plugin for realtime syntax checking
+" TODO: figure out how to run unit tests without exiting vim with quickfix etc.
+
