@@ -188,9 +188,8 @@ let g:CommandTMaxHeight=30
 " TODO: figure out a good system for having ack installed somwhere this plugin
 " can find it every time. maybe install it in the vimfiles directory
 " or figure out how to use $HOME/bin from the 'let blah' variables
-if has("gui_running")
-  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
-endif
+"  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
