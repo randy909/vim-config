@@ -152,9 +152,24 @@ if !exists(":DiffOrig")
           \ | wincmd p | diffthis
 endif
 
+
+" syntax highlighting stuff
+set t_Co=256 " enable more colors for vim, gvim ignores it
 syntax on
 "let g:molokai_original=1
 colorscheme molokai
+
+" TODO: disabling this for now since I'm printing middle dots instead.
+" I think it should be moved to the molokai syntax file since sometimes this
+" just flakes out and stops working, especially when i've got multiple buffers
+" open.
+"
+" Highlight trailing whitespace except current line.
+" I chose a dark grey from molokai because I don't need
+" too much highlighting - I'm already printing the eol character.
+"highlight ExtraWhitespace ctermbg=16 guibg=#232526
+"match ExtraWhitespace /\s\+\%#\@<!$/
+
 
 " make j/k go up/down by screen line instead of file line
 nnoremap j gj
@@ -228,12 +243,6 @@ nmap ,= :call Preserve("normal gg=G")<CR>
 
 " Deletes trailing whitespace for the entire file.
 nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
-
-" Highlight trailing whitespace except current line.
-" I chose a dark grey from molokai because I don't need
-" too much highlighting - I'm already printing the eol character.
-highlight ExtraWhitespace ctermbg=16 guibg=#232526
-match ExtraWhitespace /\s\+\%#\@<!$/
 
 
 " TODO: install the syntastic plugin for realtime syntax checking
