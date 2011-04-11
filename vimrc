@@ -30,6 +30,7 @@ set display=lastline   " display partial lines at end of screen
 set hidden             " allow unwritten buffers to hide
 set history=50         " keep 50 lines of command line history
 set lazyredraw         " don't update screen wile executing macros
+set number             " show line numbers
 set ruler              " show the cursor position all the time
 set scrolloff=3        " keep 3 lines visible at top/bottom
 set showcmd            " display incomplete commands
