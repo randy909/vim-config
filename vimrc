@@ -63,10 +63,12 @@ set expandtab
 " Put backup, undo, and swap files somewhere other that pwd
 " ~ seems to work on windows as well
 set backup   " keep a backup file
-set undofile " keep a undo file
 set directory=~/tmp//,~//,. " trailing slash prevents name collisions
 set backupdir=~/tmp,~/,.
-set undodir=~/tmp,~/,.
+if version >= 703
+  set undofile " keep a undo file
+  set undodir=~/tmp,~/,.
+endif
 
 " Folding
 set nofoldenable
