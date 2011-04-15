@@ -230,6 +230,10 @@ inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
+" map <F3> to toggle TagList
+nnoremap <silent> <F4> :TlistToggle<cr>
+inoremap <silent> <F4> <ESC>:TlistToggle<cr>
+
 " Give Textmate's indentation commands a whirl
 if has("gui_running")
   nmap <A-[> <<
