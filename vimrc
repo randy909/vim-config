@@ -220,10 +220,6 @@ endif
 nmap ,c<space> <Plug>NERDCommenterToggle
 vmap ,c<space> <Plug>NERDCommenterToggle
 
-" map <F1> to toggle Gundo
-nnoremap <silent> <F1> :GundoToggle<CR>
-inoremap <silent> <F1> <ESC>:GundoToggle<CR>
-
 " map <F2> to toggle NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<cr>
 inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
@@ -234,9 +230,13 @@ inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
-" map <F3> to toggle TagList
+" map <F4> to toggle TagList
 nnoremap <silent> <F4> :TlistToggle<cr>
 inoremap <silent> <F4> <ESC>:TlistToggle<cr>
+
+" map <F5> to toggle Gundo
+nnoremap <silent> <F5> :GundoToggle<CR>
+inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 
 " Give Textmate's indentation commands a whirl
 if has("gui_running")
