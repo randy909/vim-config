@@ -220,6 +220,10 @@ endif
 nmap ,c<space> <Plug>NERDCommenterToggle
 vmap ,c<space> <Plug>NERDCommenterToggle
 
+" map <F1> to toggle Gundo
+nnoremap <silent> <F1> :GundoToggle<CR>
+inoremap <silent> <F1> <ESC>:GundoToggle<CR>
+
 " map <F2> to toggle NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<cr>
 inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
