@@ -206,6 +206,11 @@ let g:CommandTMaxHeight=30
 "  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+" Vim 7.3 seems to create its own marks in the background which makes
+" showmarks pretty unusable. Because vim only uses numbers and punctuation for
+" its marks this works around the problem by only allowing alpha characters.
+let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
