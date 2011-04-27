@@ -33,7 +33,7 @@ let c_comment_strings=1
 set guifont=consolas
 
 " Control window size
-set lines=60
+set lines=79
 set columns=130
 
 set guioptions-=m  "remove menu bar
