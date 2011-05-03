@@ -170,6 +170,7 @@ colorscheme molokai
 "highlight ExtraWhitespace ctermbg=16 guibg=#232526
 "match ExtraWhitespace /\s\+\%#\@<!$/
 
+let mapleader = ","
 
 " make j/k go up/down by screen line instead of file line
 nnoremap j gj
@@ -177,6 +178,10 @@ nnoremap k gk
 
 " use ; for : too so I don't have to hit <shift>
 nnoremap ; :
+
+" replace ; and , with <space> and <shift-space>
+nnoremap <space> ;
+nnoremap <S-space> ,
 
 " fix mintty home/end keys for delimitMate
 " TODO: put a map here for shift-tab functionality (skip closing }])"etc.)
@@ -222,8 +227,8 @@ else
   vmap  <Plug>NERDCommenterToggle
 endif
 
-nmap ,c<space> <Plug>NERDCommenterToggle
-vmap ,c<space> <Plug>NERDCommenterToggle
+nmap <leader>c<space> <Plug>NERDCommenterToggle
+vmap <leader>c<space> <Plug>NERDCommenterToggle
 
 " map <F2> to toggle NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<cr>
@@ -252,10 +257,10 @@ if has("gui_running")
 endif
 
 " Indents (=) the entire file.
-nmap ,= :call Preserve("normal gg=G")<CR>
+nmap <leader>= :call Preserve("normal gg=G")<CR>
 
 " Deletes trailing whitespace for the entire file.
-nmap ,$ :call Preserve("%s/\\s\\+$//e")<CR>
+nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 
 
 " TODO: install the syntastic plugin for realtime syntax checking
