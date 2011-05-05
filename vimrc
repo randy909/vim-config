@@ -172,9 +172,9 @@ colorscheme molokai
 
 let mapleader = ","
 
-" make j/k go up/down by screen line instead of file line
-nnoremap j gj
-nnoremap k gk
+" make alt-j/k go up/down by screen line instead of file line
+nnoremap <A-j> gj
+nnoremap <A-k> gk
 
 " use ; for : too so I don't have to hit <shift>
 nnoremap ; :
