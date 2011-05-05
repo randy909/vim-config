@@ -223,7 +223,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " temporarily clear search highlighting
-nmap <leader><space> :nohlsearch<cr>
+nmap <leader>n :nohlsearch<cr>
 
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
