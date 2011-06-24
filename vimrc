@@ -35,6 +35,7 @@ set ruler              " show the cursor position all the time
 set scrolloff=3        " keep 3 lines visible at top/bottom
 set showcmd            " display incomplete commands
 set tags=tags;/        " look for tags file all the way down to root
+"set ttimeout notimeout " don't timeout :mappings (i.e. <leader>)
 set ttimeoutlen=10     " make vim exit search/visual with <exc> quickly"
 set ttyfast            " draw smoother if terminal is fast
 set visualbell t_vb=   " turn off bells in all forms
@@ -178,6 +179,8 @@ nnoremap <A-k> gk
 
 " use ; for : too so I don't have to hit <shift>
 nnoremap ; :
+vnoremap ; :
+nnoremap q; q:
 
 " replace ; and , with <space> and <shift-space>
 nnoremap <space> ;
