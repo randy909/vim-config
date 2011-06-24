@@ -113,29 +113,29 @@ if has("autocmd")
   call pathogen#runtime_append_all_bundles() "load pathogen
   filetype plugin indent on
 
-" TODO: understand this
+  " TODO: understand this
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  au!
+    au!
 
-" TODO: understand this
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+    " TODO: understand this
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
 
-  " Make first click in window *not* reposition cursor (might break lastpos
-  " plugin) http://www.mail-archive.com/vim_use@googlegroups.com/msg17539.html
-  " TODO: make this work in terminal
-  autocmd FocusGained * call getchar(0)
+    " Make first click in window *not* reposition cursor (might break lastpos
+    " plugin) http://www.mail-archive.com/vim_use@googlegroups.com/msg17539.html
+    " TODO: make this work in terminal
+    autocmd FocusGained * call getchar(0)
 
   augroup END
 
@@ -150,7 +150,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-          \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 
@@ -203,7 +203,7 @@ nnoremap <C-l> <C-w>l
 
 " temporarily clear search highlighting
 nmap <esc> :noh<cr>
-nmap <leader>n :nohlsearch<cr>
+nmap <leader>n :noh<cr>
 
 " Give Textmate's indentation commands a whirl
 if has("gui_running")
