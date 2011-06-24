@@ -186,6 +186,39 @@ nnoremap q; q:
 nnoremap <space> ;
 nnoremap <S-space> ,
 
+" Create newlines easily in normal mode
+nnoremap <CR> o<ESC>
+nnoremap <S-CR> O<ESC>
+nnoremap <C-CR> i<CR><ESC>k$
+
+" Make paste indent
+nnoremap p p=']
+nnoremap P P=']
+
+" Map <C-hjkl> to move between windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" temporarily clear search highlighting
+nmap <esc> :noh<cr>
+nmap <leader>n :nohlsearch<cr>
+
+" Give Textmate's indentation commands a whirl
+if has("gui_running")
+  nmap <A-[> <<
+  nmap <A-]> >>
+  vmap <A-[> <gv
+  vmap <A-]> >gv
+endif
+
+" Indents (=) the entire file.
+nmap <leader>= :call Preserve("normal gg=G")<CR>
+
+" Deletes trailing whitespace for the entire file.
+nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
+
 " fix mintty home/end keys for delimitMate
 " TODO: put a map here for shift-tab functionality (skip closing }])"etc.)
 " because shift-tab is hogged by snipmate.
@@ -219,16 +252,6 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 " its marks this works around the problem by only allowing alpha characters.
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-" Map <C-hjkl> to move between windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" temporarily clear search highlighting
-nmap <esc> :noh<cr>
-nmap <leader>n :nohlsearch<cr>
-
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
@@ -261,30 +284,7 @@ inoremap <silent> <F4> <ESC>:TlistToggle<cr>
 nnoremap <silent> <F5> :GundoToggle<CR>
 inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 
-" Give Textmate's indentation commands a whirl
-if has("gui_running")
-  nmap <A-[> <<
-  nmap <A-]> >>
-  vmap <A-[> <gv
-  vmap <A-]> >gv
-endif
-
-" Indents (=) the entire file.
-nmap <leader>= :call Preserve("normal gg=G")<CR>
-
-" Deletes trailing whitespace for the entire file.
-nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
-
 nmap <silent> <Leader><space> :BufExplorer<CR>
-
-" Create newlines easily in normal mode
-nnoremap <CR> o<ESC>
-nnoremap <S-CR> O<ESC>
-nnoremap <C-CR> i<CR><ESC>k$
-
-" Make paste indent
-nnoremap p p=']
-nnoremap P P=']
 
 " TODO: install the syntastic plugin for realtime syntax checking
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
