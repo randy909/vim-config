@@ -191,10 +191,6 @@ nnoremap <CR> o<ESC>
 nnoremap <S-CR> O<ESC>
 nnoremap <C-CR> i<CR><ESC>k$
 
-" Make paste indent
-nnoremap p p=']
-nnoremap P P=']
-
 " Map <C-hjkl> to move between windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -270,6 +266,17 @@ inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
 " insert mode after you paste
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
+
+" Make paste indent
+" YankRing finds this function after it makes its own maps
+function! YRRunAfterMaps()
+  nnoremap <silent> P  :<C-U>YRPaste 'P='']'<CR>
+  nnoremap <silent> gP :<C-U>YRPaste 'gP='']'<CR>
+  nnoremap <silent> p  :<C-U>YRPaste 'p='']'<CR>
+  nnoremap <silent> gp :<C-U>YRPaste 'gp='']'<CR>
+  xnoremap <silent> P  :<C-U>YRPaste 'P='']', 'v'<CR>
+  xnoremap <silent> p  :<C-U>YRPaste 'p='']', 'v'<CR>
+endfunction
 
 " map <F4> to toggle TagList
 nnoremap <silent> <F4> :TlistToggle<cr>
