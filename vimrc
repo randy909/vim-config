@@ -223,6 +223,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " temporarily clear search highlighting
+nmap <esc> :noh<cr>
 nmap <leader>n :nohlsearch<cr>
 
 " map <C-/> and <A-/> to toggle comment and leave originals intact
@@ -271,6 +272,14 @@ nmap <leader>= :call Preserve("normal gg=G")<CR>
 " Deletes trailing whitespace for the entire file.
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 
+" Create newlines easily in normal mode
+nnoremap <CR> o<ESC>
+nnoremap <S-CR> O<ESC>
+nnoremap <C-CR> i<CR><ESC>k$
+
+" Make paste indent
+nnoremap p p=']
+nnoremap P P=']
 
 " TODO: install the syntastic plugin for realtime syntax checking
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
