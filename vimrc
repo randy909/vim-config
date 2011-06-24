@@ -271,6 +271,8 @@ nmap <leader>= :call Preserve("normal gg=G")<CR>
 " Deletes trailing whitespace for the entire file.
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 
+nmap <silent> <Leader><space> :BufExplorer<CR>
+
 
 " TODO: install the syntastic plugin for realtime syntax checking
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
