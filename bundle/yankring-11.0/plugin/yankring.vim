@@ -1188,10 +1188,15 @@ function! s:YRPaste(replace_last_paste_selection, nextvalue, direction, ...)
         return
     endif
     
-
     let user_register  = s:YRRegister()
     let default_buffer = ((&clipboard == 'unnamed')?'+':'"')
     let v_count        = v:count
+    let l:direction    = a:direction
+
+    " If this is a linewise paste automatically indent after paste is complete
+    if getregtype(user_register) ==# 'V'
+        let l:direction .= '=`]'
+    endif
 
     " Default command mode to normal mode 'n'
     let cmd_mode = 'n'
@@ -1223,7 +1228,7 @@ function! s:YRPaste(replace_last_paste_selection, nextvalue, direction, ...)
                         \ ((cmd_mode=='n') ? "" : "gv").
                         \ ((v_count > 0)?(v_count):'').
                         \ ((user_register=='=')?'':user_register).
-                        \ a:direction
+                        \ l:direction
             if user_register == '='
                 let @" = save_default_reg
             endif
@@ -1232,7 +1237,7 @@ function! s:YRPaste(replace_last_paste_selection, nextvalue, direction, ...)
             " next item pasted to be the top of the yankring.
             let s:yr_last_paste_idx = 0
         endif
-        let s:yr_paste_dir     = a:direction
+        let s:yr_paste_dir     = l:direction
         let s:yr_prev_vis_mode = ((cmd_mode=='n') ? 0 : 1)
         return
     endif
@@ -1259,8 +1264,8 @@ function! s:YRPaste(replace_last_paste_selection, nextvalue, direction, ...)
                 exec "normal! ".
                             \ ((cmd_mode=='n') ? "" : "gv").
                             \ ((v_count > 0)?(v_count):'').
-                            \ a:direction
-                let s:yr_paste_dir     = a:direction
+                            \ l:direction
+                let s:yr_paste_dir     = l:direction
                 let s:yr_prev_vis_mode = ((cmd_mode=='n') ? 0 : 1)
 
                 " In this case, we have bypassed the yankring
@@ -1273,8 +1278,8 @@ function! s:YRPaste(replace_last_paste_selection, nextvalue, direction, ...)
             exec "normal! ".
                         \ ((cmd_mode=='n') ? "" : "gv").
                         \ ((v_count > 0)?(v_count):'').
-                        \ a:direction
-            let s:yr_paste_dir     = a:direction
+                        \ l:direction
+            let s:yr_paste_dir     = l:direction
             let s:yr_prev_vis_mode = ((cmd_mode=='n') ? 0 : 1)
             return
         endif
@@ -1339,16 +1344,16 @@ function! s:YRPaste(replace_last_paste_selection, nextvalue, direction, ...)
                     \ ((cmd_mode=='n') ? "" : "gv").
                     \ (
                     \ ((v_count > 0)?(v_count):'').
-                    \ a:direction
+                    \ l:direction
                     \ )
         call setreg(default_buffer, save_reg, save_reg_type)
         call s:YRSetPrevOP(
-                    \ a:direction
+                    \ l:direction
                     \ , v_count
                     \ , default_buffer
                     \ , 'n'
                     \ )
-        let s:yr_paste_dir     = a:direction
+        let s:yr_paste_dir     = l:direction
         let s:yr_prev_vis_mode = ((cmd_mode=='n') ? 0 : 1)
     endif
 
