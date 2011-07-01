@@ -266,30 +266,6 @@ inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
-" Make paste indent
-" TODO: so this whole thing is complicated.
-" When you paste an entire line or lines in vim it leaves the cursor at the
-" beginning of the pasted text. When you paste a single word it leaves the
-" cursor after the pasted word. Therefore, to make a shortcut that behaves
-" correctly you would have to make a plugin that looks at what you are about
-" to paste and then puts the cursor in the right place. You would use the
-" shortcuts below for the multi-line scenario and you'd probably just skip the
-" whole inention thing if you're pasting less than a line because it would
-" seem wierd otherwise.
-" Another approach is to just use ]p and [p when pasting and forget the entire
-" thing. That seems like a cop-out maybe since it's not as smart as = and it
-" doesn't work if it's the first line in a scope. all it really does is match
-" the line before it :(.
-" YankRing finds this function after it makes its own maps
-"function! YRRunAfterMaps()
-  "nnoremap <silent> P  :<C-U>YRPaste 'P=`]'<CR>
-  "nnoremap <silent> gP :<C-U>YRPaste 'gP=`]'<CR>
-  "nnoremap <silent> p  :<C-U>YRPaste 'p=`]'<CR>
-  "nnoremap <silent> gp :<C-U>YRPaste 'gp=`]'<CR>
-  "xnoremap <silent> P  :<C-U>YRPaste 'P=`]', 'v'<CR>
-  "xnoremap <silent> p  :<C-U>YRPaste 'p=`]', 'v'<CR>
-"endfunction
-
 " map <F4> to toggle TagList
 nnoremap <silent> <F4> :TlistToggle<cr>
 inoremap <silent> <F4> <ESC>:TlistToggle<cr>
