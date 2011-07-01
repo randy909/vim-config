@@ -131,6 +131,10 @@ else
    hi NonText         guifg=#465457 guibg=#1B1D1E
 end
 
+" #66D9EF = light blue
+" #AE81FF = purple
+"hi perlVarPlain       guifg=#66D9EF gui=none
+hi perlVarPlain       guifg=#AE81FF gui=none
 "
 " Support for 256-color terminal
 "
