@@ -187,8 +187,9 @@ nnoremap <space> ;
 nnoremap <S-space> ,
 
 " Create newlines easily in normal mode
-nnoremap <CR> o<ESC>
-nnoremap <S-CR> O<ESC>
+" The second one splits the line where the cursor is
+" nnoremap <CR> o<ESC>    this screws up quickfix jumping to files
+nnoremap <S-CR> o<ESC>
 nnoremap <C-CR> i<CR><ESC>k$
 
 " Map <C-hjkl> to move between windows
@@ -198,7 +199,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Clear search highlighting
-nnoremap \ :noh<cr>
+nnoremap <silent> <leader>/ :noh<cr>
 
 " Give Textmate's indentation commands a whirl
 if has("gui_running")
