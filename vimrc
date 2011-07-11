@@ -215,6 +215,16 @@ nmap <leader>= :call Preserve("normal gg=G")<CR>
 " Deletes trailing whitespace for the entire file.
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 
+" Show syntax highlighting groups for word under cursor
+" (no luck putting the function in funrc.vim)
+nmap <leader>g :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " fix mintty home/end keys for delimitMate
 " TODO: put a map here for shift-tab functionality (skip closing }])"etc.)
 " because shift-tab is hogged by snipmate.
@@ -276,6 +286,10 @@ nnoremap <silent> <F5> :GundoToggle<CR>
 inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 
 nmap <silent> <Leader><space> :BufExplorer<CR>
+
+" Put search item at the top of the screen
+nnoremap <A-n>   nzt
+nnoremap <A-S-n> Nzt
 
 " TODO: install the syntastic plugin for realtime syntax checking
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.

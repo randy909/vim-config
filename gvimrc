@@ -41,3 +41,7 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 
 set t_vb= " don't flash window even in gui mode
+
+if exists('*HexHighlight()')
+  nmap <leader>h :call HexHighlight()<Return>
+endif
