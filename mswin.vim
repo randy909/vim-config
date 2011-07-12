@@ -51,9 +51,12 @@ exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
 imap <S-Insert>     <C-V>
 vmap <S-Insert>     <C-V>
 
-" TODO: this doesn't work in the terminal, fix. (alt-mouse does though)
-" Use CTRL-Q to do what CTRL-V used to do
+" Use CTRL-Q or F9 to do what CTRL-V used to do
+" <C-Q> doesn't work with xterm so F9 is an alternative
+" TODO: get to the bottom of this
 noremap <C-Q>       <C-V>
+noremap <F9>        <C-V>
+inoremap <F9>       <C-V>
 
 " Use CTRL-S for saving, also in Insert mode
 noremap  <C-S>      :update<CR>

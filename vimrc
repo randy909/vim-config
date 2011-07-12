@@ -93,7 +93,6 @@ endif
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
-" TODO: understand this
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
