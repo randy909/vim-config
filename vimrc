@@ -24,6 +24,7 @@ source <sfile>:p:h/funrc.vim
 " it lets you put the cursor on the eol character rather than one before it.
 set virtualedit=block
 
+set complete-=i        " don't search included file with <c-n> or <c-p>
 set cursorline         " show a bar over the line with the cursor
 set encoding=utf-8     " utf-8 is great
 set display=lastline   " display partial lines at end of screen
