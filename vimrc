@@ -277,9 +277,9 @@ inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
-" map <F4> to toggle TagList
-nnoremap <silent> <F4> :TlistToggle<cr>
-inoremap <silent> <F4> <ESC>:TlistToggle<cr>
+" map <F4> to toggle Tagbar
+nnoremap <silent> <F4> :TagbarToggle<cr>
+inoremap <silent> <F4> <ESC>:TagbarToggle<cr>
 
 " map <F5> to toggle Gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
