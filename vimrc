@@ -121,6 +121,7 @@ if has("autocmd")
     " TODO: understand this
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
+    autocmd FileType perl colorscheme solarized-rotate
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
@@ -157,8 +158,7 @@ endif
 " syntax highlighting stuff
 set t_Co=256 " enable more colors for vim, gvim ignores it
 syntax on
-"let g:molokai_original=1
-colorscheme molokai
+colorscheme solarized
 
 " TODO: disabling this for now since I'm printing middle dots instead.
 " I think it should be moved to the molokai syntax file since sometimes this

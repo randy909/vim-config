@@ -31,7 +31,6 @@ let c_comment_strings=1
 
 " Aethsetics
 set guifont=consolas
-colorscheme Digerat-x
 
 " Control window size
 set lines=79
