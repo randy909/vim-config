@@ -158,6 +158,9 @@ endif
 " syntax highlighting stuff
 set t_Co=256 " enable more colors for vim, gvim ignores it
 syntax on
+call togglebg#map("<F8>")
+let g:solarized_contrast="high"
+set background=dark
 colorscheme solarized
 
 " TODO: disabling this for now since I'm printing middle dots instead.
