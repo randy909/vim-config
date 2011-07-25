@@ -544,6 +544,7 @@ exe "hi! Comment"        .s:fmt_ital   .s:fg_base01 .s:bg_none
 exe "hi! Constant"       .s:fmt_none   .s:fg_cyan   .s:bg_none
 "       *Constant        any constant
 "        String          a string constant: "this is a string"
+exe "hi! String"         .s:fmt_ital   .s:fg_cyan   .s:bg_none
 "        Character       a character constant: 'c', '\n'
 "        Number          a number constant: 234, 0xff
 "        Boolean         a boolean constant: TRUE, false
@@ -770,8 +771,11 @@ exe "hi! javaScript"        .s:fmt_none .s:fg_yellow .s:bg_none
 " perl highlighting "{{{
 " ---------------------------------------------------------------------
 exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_back   .s:fmt_none
-exe "hi! perlVarPlain"   . s:fg_yellow .s:bg_back   .s:fmt_none
+exe "hi! perlVarPlain"   . s:fg_orange .s:bg_back   .s:fmt_none
 exe "hi! perlStatementFileDesc". s:fg_cyan.s:bg_back.s:fmt_none
+exe "hi! perlSpecialString" . s:fg_base1  .s:bg_back   .s:fmt_none
+exe "hi! perlConditional"   . s:fg_violet .s:bg_back   .s:fmt_none
+exe "hi! perlStatementStorage" . s:fg_yellow .s:bg_back   .s:fmt_none
 
 "}}}
 " tex highlighting "{{{

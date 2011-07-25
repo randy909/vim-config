@@ -121,7 +121,6 @@ if has("autocmd")
     " TODO: understand this
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
-    autocmd FileType perl colorscheme solarized-rotate
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
@@ -160,6 +159,7 @@ set t_Co=256 " enable more colors for vim, gvim ignores it
 syntax on
 call togglebg#map("<F8>")
 let g:solarized_contrast="high"
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
