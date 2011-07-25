@@ -253,6 +253,9 @@ let g:CommandTMaxHeight=30
 "  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+let tlist_perl_settings='perl;c:constant;l:label;p:package;k:class;r:property;s:subroutine'
+let Tlist_Show_One_File=1
+
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
