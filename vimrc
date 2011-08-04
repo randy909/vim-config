@@ -259,6 +259,11 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 let tlist_perl_settings='perl;c:constant;l:label;p:package;k:class;r:property;s:subroutine'
 let Tlist_Show_One_File=1
 
+" Enable syntastic syntax checking
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
