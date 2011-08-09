@@ -80,9 +80,9 @@ set nofoldenable
 "let perl_fold=1 "turn on folding in perl
 
 " Use the same symbols as TextMate for tabstops and EOLs
-" For consolas the available characters can be found here:
-" http://www.fileformat.info/info/unicode/font/consolas/grid.htm
-set listchars=tab:›\ ,eol:¬,trail:·
+" You can see the symbols with :h digraph-table
+"set listchars=tab:›\ ,eol:¬,trail:·
+set listchars=tab:›\ ,trail:·
 set list
 
 " In many terminal emulators the mouse works just fine, thus enable it.
@@ -256,8 +256,17 @@ let g:CommandTMaxHeight=30
 "  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-let tlist_perl_settings='perl;c:constant;l:label;p:package;k:class;r:property;s:subroutine'
-let Tlist_Show_One_File=1
+" Tell tagbar about custom tags I specified in ~/.ctags
+let g:tagbar_type_perl = {
+    \ 'kinds' : [
+        \ 'c:constant',
+        \ 'l:label',
+        \ 'p:package',
+        \ 'k:class',
+        \ 'r:property',
+        \ 's:subroutine'
+    \ ]
+\ }
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
