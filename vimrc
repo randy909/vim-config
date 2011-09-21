@@ -256,18 +256,6 @@ let g:CommandTMaxHeight=30
 "  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-" Tell tagbar about custom tags I specified in ~/.ctags
-let g:tagbar_type_perl = {
-    \ 'kinds' : [
-        \ 'c:constant',
-        \ 'l:label',
-        \ 'p:package',
-        \ 'k:class',
-        \ 'r:property',
-        \ 's:subroutine'
-    \ ]
-\ }
-
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
