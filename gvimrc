@@ -30,7 +30,11 @@ let c_comment_strings=1
 "endif
 
 " Aethsetics
-set guifont=consolas
+if has("unix")
+  set guifont=monospace\ 9
+else
+  set guifont=consolas
+endif
 
 " Control window size
 set lines=79
