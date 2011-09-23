@@ -20,8 +20,10 @@ copy several required .dll's (like libstdc++-6.dll) to vim/vim73 from devkit (mi
 -- LINUX --
 (assuming you want ruby 1.9)
 install ruby1.9 (full with dev stuff) via package manager
-install python (2 instead of 3 is easier)
-install perl (maybe, i can't remember if this is really needed)
+    note: rails requires the latest version of ruby so you have to install
+    it (1.9.2) via the source
+install python w/ dev libs (2 instead of 3 is easier)
+install perl w/ dev libs
 check out latest vim code with hg (mercurial)
     hg clone https://vim.googlecode.com/hg/ vim
 cd vim/src
@@ -31,6 +33,14 @@ update Makefile:
     CONF_OPT_PYTHON = --enable-pythoninterp
     CONF_OPT_RUBY = --enable-rubyinterp --with-ruby-command=ruby1.9.1
     (set the prefix if you want to install to home directory)
+
+sudo apt-get install libncurses5-dev
+# i installed these 3 last time, xorg-dev finally got the x11 headers
+# but xorg-dev isn't listed as a dependency of vim, hmm...
+sudo apt-get install libgtk2.0-dev
+sudo apt-get install libgnomeui-dev
+sudo apt-get install xorg-dev
+
 make
 make install
 
