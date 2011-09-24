@@ -33,14 +33,10 @@ update Makefile:
     CONF_OPT_PYTHON = --enable-pythoninterp
     CONF_OPT_RUBY = --enable-rubyinterp --with-ruby-command=ruby1.9.1
     (set the prefix if you want to install to home directory)
-
-sudo apt-get install libncurses5-dev
-# i installed these 3 last time, xorg-dev finally got the x11 headers
-# but xorg-dev isn't listed as a dependency of vim, hmm...
-sudo apt-get install libgtk2.0-dev
-sudo apt-get install libgnomeui-dev
-sudo apt-get install xorg-dev
-
+install a curses library:
+    sudo apt-get install libncurses5-dev
+install X11 headers:
+    sudo apt-get install xorg-dev
 make
 make install
 
@@ -52,3 +48,7 @@ organize things a bit more.
 
 I did not use the dynamic versions of the --enable-blahinterp=dynamic,
 could play around with that in the future, not totally sure of the advantages.
+
+Another neat trick is to do:
+apt-get build-dep -s vim
+This shows all the build dependencies for vim - very useful
