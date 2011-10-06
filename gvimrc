@@ -30,9 +30,7 @@ let c_comment_strings=1
 "endif
 
 " Aethsetics
-if has("unix")
-  set guifont=monospace\ 9
-else
+if has("win32")
   set guifont=consolas
 endif
 
