@@ -1,4 +1,4 @@
-# Copyright 2010 Wincent Colaiuta. All rights reserved.
+# Copyright 2010-2011 Wincent Colaiuta. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -21,18 +21,20 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
+require 'command-t/vim'
+
 module CommandT
   module VIM
-    class Window
-      def self.select window
-        return true if $curwin == window
-        initial = $curwin
-        while true do
-          ::VIM::command 'wincmd w'           # cycle through windows
-          return true if $curwin == window    # have selected desired window
-          return false if $curwin == initial  # have already looped through all
-        end
+    module PathUtilities
+
+    private
+
+      def relative_path_under_working_directory path
+        # any path under the working directory will be specified as a relative
+        # path to improve the readability of the buffer list etc
+        pwd = File.expand_path(VIM::pwd) + '/'
+        path.index(pwd) == 0 ? path[pwd.length..-1] : path
       end
-    end # class Window
+    end # module PathUtilities
   end # module VIM
 end # module CommandT
