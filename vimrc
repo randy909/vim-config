@@ -246,8 +246,10 @@ let delimitMate_expand_cr = 1
 let g:fuf_modesDisable = []
 
 " CommandT prefs
-let g:CommandTMatchWindowAtTop=1
+let g:CommandTMatchWindowReverse=1
 let g:CommandTMaxHeight=30
+let g:CommandTCancelMap='<esc>'
+set wildignore+=*.class,*.o,*.obj,*/target/*
 
 " look for ack in home/bin
 " TODO: figure out a good system for having ack installed somwhere this plugin
