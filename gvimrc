@@ -32,6 +32,8 @@ let c_comment_strings=1
 " Aethsetics
 if has("win32")
   set guifont=consolas
+else
+  set guifont=Ubuntu\ Mono\ 12
 endif
 
 " Control window size
