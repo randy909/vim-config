@@ -1,0 +1,640 @@
+*vorax.txt*   Plugin for working with Oracle databases.
+              For vim version 7.x
+
+			       By Alexandru Tică
+		     alexandru.tica email-at-sign gmail.com
+
+                                                        *vorax* *vorax-plugin*
+
+	Contents:
+	   How to Install ......................... |vorax-install|
+	   Commands .............................. |vorax-commands|
+	   Mappings .............................. |vorax-mappings|
+	   Configuration .................... |vorax-configuration|
+	   Customizing key mappings ....... |vorax-custom-mappings|
+	   Using DbExplorer .................... |vorax-dbexplorer|
+	   Using the Connection Window ........ |vorax-conn-window|
+	   The output buffer ................ |vorax-output-buffer|
+	   Using the the Fuzzy Search  ....... |vorax-fuzzy-search|
+	   Explain plans  .................... |vorax-explain-plan|
+	   Search Oracle Documentation ......... |vorax-oracle-doc|
+	   Integration ........................ |vorax-integration|
+
+VoraX aims to be a simple, yet a powerful IDE for Oracle databases. Instead of
+reinventing the wheel, VoraX relies on the well-known SqlPLUS which is
+actually used to connect to the database, to execute and to get the results
+from the target Oracle server. However, this interaction is hidden from the user 
+who just uses his/her Vim environment without knowing that, behind, an SqlPLUS
+process does all the work.
+
+The big advantage of this approach is that, in VoraX, almost all SqlPLUS commands 
+may be used without any problems. You can format columns, set pagination,
+autotrace queries etc. Basically, everything you used to type on your SqlPLUS
+prompt is guaranteed to work in VoraX, except maybe for some exotic cases
+(e.g. using vim in console mode, having the EDITOR set to a terminal editor
+and executing the "ed" sqlplus command).
+
+Another advantage is that you'll get an efficient Oracle IDE with a very small
+footprint. For Oracle DBAs this is huge because they don't need heavy tools
+with a lot of features they never use. Likewise, the fact that VoraX may be used 
+within a regular console makes it suitable for server environments.
+
+==============================================================================
+HOW TO INSTALL                                                 *vorax-install*
+
+VoraX follows the standard procedure of installing a Vim plugin. However, you 
+need to take care of some dependencies VoraX relies on:
+
+1. your vim must have ruby support enabled. In order to check this you may
+execute :version and look for +ruby. The supported ruby is ruby1.8. To check 
+this you may run:
+	:ruby puts RUBY_VERSION
+CREAM configurations are not supported therefore a plain vim should be used. 
+2. ruby 1.8 (1.8.7 is the recommended version)
+3. rubygems (on Debian systems is as symple as: sudo apt-get install rubygems)
+4. for Windows OS, besides ruby, you'll also need the win32-api gem. You may
+install it using: 
+	gem install win32-api -r
+5. the anlr3 gem. You may install it using:
+	gem install antlr3 -r
+6. a working Oracle client with sqlplus, which has to be available in the
+environment $PATH variable. The instant client with sqlplus should be just
+fine.
+7. optionaly, if you want to securely store passwords for your Oracle
+connections then the openssl ruby extension must be available. On Ubuntu systems
+you may use the following command:
+	sudo apt-get install libopenssl-ruby1.8
+
+Please notice that just ruby 1.8 is supported for the moment therefore be
+careful not to install ruby 1.9 instead.
+
+After the installation is done it is advisable to index the documentation
+using the following commands:
+	:helptags $VIM/.vim/doc 		(Unix)
+	:helptags $VIM/vimfiles/doc 		(Windows)
+
+==============================================================================
+COMMANDS                                                      *vorax-commands*
+
+VoraX defines the following commands:
+
+:VoraxConnect {connection_string}
+	-> it is used to connect to an Oracle database. The
+	{connection_string} has the same format as the one expected by a
+	regular SqlPlus tool: user/password@db. If the connection_string is
+	not provided, or an incomplete one is given (e.g. user@db) then VoraX
+	will prompt the user for all mising parts needed for connecting.
+
+:VoraxExecUnderCursor
+	-> executes the current statement where the cursor is. In order this
+	command to correctly detect this statement it is advisable to be used
+	in a sql buffer only.
+
+:VoraxExplainUnderCursor
+	-> get the explain plan for the statement where the cursor is. In order 
+	this command to correctly detect this statement it is advisable to be 
+	used in a sql buffer only.
+
+:VoraxExplainOnlyUnderCursor
+	-> get the explain only plan for the statement where the cursor is. In order 
+	this command to correctly detect this statement it is advisable to be 
+	used in a sql buffer only.
+
+:VoraxExecBuffer
+	-> executes all statements from the current buffer.
+
+:VoraxExecVisualSQL
+	-> executes the current selection.
+
+:VoraxExplainVisualSQL
+	-> explain plan for the selected statement.
+
+:VoraxQueryVerticalLayout
+  -> executes the current query and shows the result using a vertical columns layout.
+
+:VoraxQueryVerticalLayoutVisual
+  -> executes the selected query and shows the result using a vertical columns layout.
+
+:VoraxExplainOnlyVisualSQL
+	-> explain only plan for the selected statement.
+
+:VoraxDbExplorer
+	-> opens the database explorer tree.
+
+:VoraxDescribe [object]
+	-> describes the provided database object. If no object is provided
+	the one under cursor is described.
+
+:VoraxDescribeVisual
+	-> describes the visual selected database object.
+
+:VoraxDescribeVerbose [object]
+	-> describes the provided database object in a detailed mode. For the
+	moment just tables and views are supported. Unlike the regular
+	describe, the detailed one also displays: comments, foreign keys,
+	indexes etc.
+
+:VoraxDescribeVerboseVisual
+	-> describes the visual selected database object in a detailed mode.
+
+:VoraxGotoDefinition [object]
+	-> Opens the definition of the provided object. If no object is
+	provided the one under cursor is assumed. The object will be opened
+	into a readonly buffer.
+
+:VoraxToggleConnWindow
+	-> Toggles the connection profiles window.
+
+:VoraxToggleResultWindow
+	-> Toggles the results window.
+
+:VoraxSearch
+	-> Fuzzy search for a database object name.
+
+:VoraxHelp [pattern]
+	-> Search the Oracle docs for the provided pattern.
+
+:VoraxHelpBuildIndex [path]
+	-> create the help index for the documentation located at the
+	provided path.
+
+==============================================================================
+MAPPINGS                                                      *vorax-mappings*
+
+The default mappings for VoraX are shown below.
+
+Global mappings (normal mode):
+<Leader>vc 	: Request a connection to the database.
+<Leader>vo 	: Toggles the connection profiles window.
+<Leader>vr 	: Toggles the results window.
+<Leader>vv 	: Opens the database explorer tree.
+<Leader>vh 	: Search/help for the provided pattern into
+                  the configured oracle docs.
+
+Sql/PLSQL local buffer mappings (normal mode):
+<Leader>ve 	: Executes statements (the current one or the selected ones).
+<Leader>vp 	: Explain plan for statement (the current one or the 
+                  selected one).
+<Leader>vpo	: Explain only plan for statement (the current one or the 
+                  selected one).
+<Leader>vb 	: Executes all statements from the current buffer.
+<Leader>vd 	: Describe the database object under cursor.
+<Leader>vdd	: Describe the database object under cursor using the detailed
+		  mode.
+<Leader>vg 	: Go to definition of the database object under cursor.
+<Leader>v1      : Executes a query and shows the results using the vertical 
+                  columns layout. Pay attention that only queries should be
+                  executed this way.
+K               : Oracledoc help for the word under cursor.
+
+Sql/PLSQL local buffer mappings (insert mode):
+<Leader>vl 	: While in insert mode start a vorax fuzzy search.
+
+==============================================================================
+CONFIGURATION                                            *vorax-configuration*
+
+You may customize VoraX using the following global variables:
+
+g:vorax_sqlplus_header
+	-> it is a "\n" delimited list of commands to be executed into the
+	sqlplus environment before creating a new oracle session. These
+	commands overides the settings from your [g]login.sql file.
+
+g:vorax_resultwin_geometry
+	-> the position and the size of the results window. The syntax is the
+	same as for split. 
+
+g:vorax_resultwin_clear
+	-> defines whenever or not the result window to be cleared between
+	subsequent SQL executions. If 1, the result window is cleared before
+	executing another statements. Otherwise, the results from the new
+	executed statement are simply appended to the end of the already
+	existing content.
+
+g:vorax_inline_prompt
+	-> this variable defines how VoraX should ask the user for input when
+	SqlPlus requires this. For example, an sqlplus script may have ACCEPT
+	statements used to get input from the user. Because you don't interact
+	directly with SqlPlus is up to VoraX do define how to prompt for these
+	values. If g:vorax_inline_prompt is 1 then VoraX expect to receive the
+	user input directly in the result window. For this, you have to go to
+	the last line (G) and to add at the very end of it (A) your value.
+	It's the same like in SqlPlus but more picky because VoraX will
+	consider as your input just the text you enter after the very end
+	column of the prompt label. So, be careful, not to edit this last line
+	before this position. If you want a safer way of providing input you
+	can set this variable on 0. In this case when VoraX waits for input
+	you may press ENTER and you'll be requested to enter your value in the
+	vim command line area.
+
+g:vorax_dbexplorer_side
+	-> configures the placement of the database explorer tree. If 0 it
+	will be layed out on the left, if 1 on the right.
+
+g:vorax_dbexplorer_width
+	-> configures how large the width of the database explorer window
+	should be.
+
+g:vorax_dbexplorer_object_over_file
+	-> configures how DbExplorer should open a database object when a
+	file with the same name already exists within the current directory.
+	The possible values are:
+		0 = always load the source from the database
+		1 = always load the file if there is one
+		2 = ask the user
+	Setting this variable on 1 may be convinient for those who's working
+	with a source control system and, even they open the database object
+	from DbExplorer they still want to rely on the file version of that
+	source.
+
+g:vorax_dbexplorer_file_extensions
+	-> setup file extensions for every relevant object type which is
+	opened from DbExplorer. If a type is not found within this array the
+	default .sql extension will be used. This variable is a list of
+	dictionaries having the following keys:
+		"type" = the type of the database object
+		"ext"  = the corresponding file extension (without the leading
+			 dot)
+
+g:vorax_messages
+	-> this is a way of having all string messages in a central place. It
+	acts like a rude string resource. However, you may change it if you
+	don't like the already defined messages or you don't like English.
+
+g:vorax_logging
+	-> if 1 then the logging feature of the result window will be
+	activated at startup, otherwise, by default, the logging feature will
+	be disabled. However, it can be enabled by using the "L" key within
+	the result window. If logging is enabled everyting is written into the
+	result window will also be written into the log file. The log file has
+	the following format: vorax_[current_time_in_sec]_[pid_of_vim].log.
+
+g:vorax_logging_dir
+	-> where to create the logfile if result window logging is requested. 
+	By default the user's home directory is assumed.
+	
+g:vorax_connwin_geometry
+	-> the position and the size of the connection profiles window. The 
+	syntax is the same as for split. 
+
+g:vorax_open_scratch_at_connect
+	-> if 1 then a scratch sql buffer will be opened after a successful
+	connection. This means you may start executing SQL statements right
+	away.
+
+g:vorax_store_passwords
+	-> if this option is set then you may store passwords for your
+	database connections in a secure repository. First time you choose to
+	store a password, VoraX will create a secured repository for you and 
+	it'll ask for a master password. After that, it's enough to provide 
+	this master password and all the other passwords for your oracle
+	connections will be fetched from this repository. The
+	encoding/decoding mechanism is based on RSA keys which are
+	automatically generated into the user's home directory. This feature
+	needs the openssl extension for ruby. In Ubuntu for example you may
+	install it using: sudo apt-get install libopenssl-ruby1.8
+
+g:vorax_min_fuzzy_chars
+	-> this option is used to control the vorax fuzzy search feature.
+	Because a short search pattern will fetch a lot of database items
+	affecting the performance, the fuzzy search will not get anything from
+	the database unless the minimum characters specified by this variable
+	is typed. You are not allowed to set it to a value lower than 3. Yet, 
+	if you do it the value will be automatically reset to 3.
+
+g:vorax_oradoc_geometry
+	-> this option is used to control the layout of the oradoc window. It
+	follows the same syntax as vim split command therefore you have
+	maximum of flexibility.
+
+g:vorax_oradoc_index_file
+	-> what is the name of the index file for the indexed documentation. By
+	default it's [user's home]/vorax_oradoc.idx.
+
+g:vorax_oradoc_config_file
+	-> what is the name for the oradoc(a.k.a. swish-e) config file. By
+	default is &rtp/vorax/oradoc/conf/vorax_oradoc.conf.
+
+g:vorax_oradoc_autoclose
+	-> this option may be used to control how the oradoc window should
+	behave when a documentation entry is opened. If this option is on (=1)
+	then the oradoc window will automatically close, otherwise it will
+	remain unchanged.
+
+g:vorax_oradoc_open_with
+	-> this option configures the external browser to be used when opening
+	a documentation entry.
+
+g:vorax_restore_focus
+	-> by default, when executing something VoraX will spit the output
+	directly into the result window and will leave the focus there. You may
+	set this global variable to set the focus back to the previous
+	(usually the originating) window after the statment is executed.
+
+g:vorax_update_title
+	-> by default, after executing any statement VoraX checks the current 
+	connection and gets the corresponding user@db. Then it uses this string
+	to update the title of the window and the root node of the DbExplorer.
+	The side effect of this is that DBMS_XPLAN.display_cursor, when no sql_id 
+	is provided, will fail to display the execution plan of the last executed
+	statement because, in this case, the last executed statement is the one 
+	used to get the currently connected user@db and not the query executed by
+	the user. You may disable the automatic update of the title by setting this
+	variable on 0. However, you may choose to show this information as part 
+	of the sqlplus prompt with something like:
+
+  set echo on
+  set sqlprompt "_USER'@'_CONNECT_IDENTIFIER _PRIVILEGE> "
+
+  or, you may choose the built-in explain plan feature of VoraX, or you may
+  execute the query to be explained and the dbms_xplan.display_cursor as
+  a single block.
+
+g:vorax_quickfixwin_command
+  -> contains the command used to display the quickfix window after compiling
+  a PL/SQL object (package, type, procedure etc.) Using this variable you have
+  flexibility on deciding the layout of the window but you can also invoke
+  a custom VIM function which may choose to display the errors in a differnt
+  way.
+
+g:vorax_monitor_end_exec
+  -> this setting allow to monitor when a statement has finished. If 1 (which
+  means monitoring enabled) then after the statement has finished the command
+  given by g:vorax_notify_command will be invoked. If 0 then monitoring is
+  disabled except a value grater than 0 is specified for
+  g:vorax_notify_long_running.
+
+g:vorax_notify_command
+  -> the command to be used for sending notifications. It can be a call to
+  your defined Vim function or an external OS command.
+
+g:vorax_notify_long_running
+  -> if set on a value grater than 0 then the notification command (defined by
+  g:vorax_notify_command) will be invoked only if the execution time of a
+  statement will be grater than the number of seconds set by this global
+  variable. The notification command will be invoked despite of
+  the value of g:vorax_monitor_end_exec being set or not. Setting this
+  variable on 0 disables automatic notification for long running statements.
+
+g:vorax_debug
+	->  this variable controlls whenever or not to write into a log file.
+	This feature depends on the log.vim plugin which is available on 
+	http://www.vim.org/scripts/script.php?script_id=2330 address. Pay
+	attention that this script should resie in the autoload directory.
+
+==============================================================================
+CUSTOMIZING KEY MAPPINGS                               *vorax-custom-mappings*
+
+If you don't like the default VoraX key mappings you are allowed to change
+them using a few global variables:
+
+Variable Name                             Default Value
+===============================           ========================
+g:vorax_key_for_connect                   <Leader>vc
+g:vorax_key_for_oradoc_search             <Leader>vh
+g:vorax_key_for_toggle_db_explorer        <Leader>vv
+g:vorax_key_for_toggle_conn_window        <Leader>vo
+g:vorax_key_for_toggle_result_window      <Leader>vr
+g:vorax_key_for_oradoc_under_cursor       K
+g:vorax_key_for_fuzzy_search              <Leader>vl
+g:vorax_key_for_exec_sql                  <Leader>ve
+g:vorax_key_for_exec_one                  <Leader>v1
+g:vorax_key_for_explain_plan              <Leader>vp
+g:vorax_key_for_explain_only              <Leader>vpo
+g:vorax_key_for_exec_buffer               <Leader>vb
+g:vorax_key_for_describe                  <Leader>vd
+g:vorax_key_for_describe_verbose          <Leader>vdv
+g:vorax_key_for_goto_def                  <Leader>vg
+g:vorax_key_for_toggle_logging            L
+g:vorax_key_for_toggle_notify             M
+
+VoraX also registers an event handler object (aka dictionary) with functions 
+invoked in some well defined points within VoraX logic. You may overwrite these 
+functions and provide new mappings, other than the ones you are allowed to
+change with the above global variables.
+
+At this moment the following functions are available:
+
+	buf_register_keys() => registers custom keys in sql/plsql buffers
+	rwin_register_keys() => custom keys for the results window
+	dbexplorer_register_keys() => custom keys for dbexplorer
+	rwin_after_spit() => run something after the output was displayed
+
+For example you may put the following snippet into your .vimrc file:
+
+function Vorax_Hooks()
+
+	let s:vorax_handler = Vorax_GetEventHandler()
+
+	function! s:vorax_handler.buf_register_keys() dict
+	  " your mappings
+	endfunction
+
+	function! s:vorax_handler.rwin_register_keys() dict
+	  " your mappings
+	endfunction
+
+	function! s:vorax_handler.dbexplorer_register_keys() dict
+	  " your mappings
+	endfunction
+
+	function! s:vorax_handler.rwin_after_spit() dict
+	  " whatever you like
+	endfunction
+
+endfunction
+
+au VimEnter * :call Vorax_Hooks()
+au GuiEnter * :call Vorax_Hooks()
+
+
+==============================================================================
+USING DBEXPLORER                                            *vorax-dbexplorer*
+
+The DbExplorer may be used to browse database objects and to view/edit their
+definitions. To move through nodes use the standard vim navigation keys. To
+open a node you may press ENTER or the "o" key. To refresh a node you may
+use the "R" key. Likewise, the describe mappings are also available within the
+tree. You may select the object you want and invoke describe directly from
+here.
+
+==============================================================================
+USING THE CONNECTION WINDOW                                *vorax-conn-window*
+
+The connection profiles window is a special buffer where you may store all
+your frequently used connection strings. A connection profile can be something
+like user@database or an EZCONNECT string. Even it's not advisable you may
+also include the password if you want, but take care that it will be shown and
+stored in clear. The connection profiles window assumes that one profile per
+line is provided. For all important connection profiles (e.g. connections with
+a DBA user on a productive database) you may put a "!" before in order to
+highlight them. This should act like an warning that you are about to connect
+to a powerful user. If a line starts with a "--" (the sql comment style) that
+line is ignored. You may use this to separate various profiles according to
+your criteria. In order to connect using a profile just go on that line and
+press ENTER. As an additional mapping you may close the profiles window by
+pressing the "q" key.
+
+The connection profiles file is always stored into: $HOME/_vorax_connections
+file.
+
+==============================================================================
+THE OUTPUT BUFFER                                        *vorax-output-buffer*
+
+The output of an executed statement is displayed into the so-called output
+buffer. This is a special buffer where you may inspect the result of your
+executed oracle command. The following key mappings are available within this
+window:
+
+<Leader>vd 	: Describe the database object under cursor.
+<Leader>vdd : Describe the database object under cursor using the detailed
+              mode.
+<Leader>vg 	: Go to definition of the database object under cursor.
+L           : switch on/off logging for this window.
+R           : Refresh the window by re-executing the last statement.
+K           : Oracle help (if configured) for the word under cursor
+
+VoraX also provides a way to run post-display actions after the output of an
+executed statement is display. This can be done using the provided VoraX event
+handler. It's up to the user to provide an implementation for the:
+
+	[event_handler_object].rwin_after_spit
+
+function. For an example of how to use this event handler see 
+|vorax-custom-mappings|
+
+==============================================================================
+USING THE FUZZY SEARCH                                    *vorax-fuzzy-search*
+
+VoraX allows to fuzzy search for a database item. This may be quite handy when
+you don't know the complete name of the item but just a part of it. For
+example, suppose you want to increase the size of your flash recovery area and
+you don't know the exact name of the parameter. However, you know that there's
+a "recovery" word somewhere in between. So, your sql buffer may look like
+this:
+
+ALTER SYSTEM SET |<-- invoke fuzzy search here
+
+While still in insert mode invoke the fuzzy search using <Leader> vl and type
+there the word "recovery". You should recognize now the name of the search
+parameter: db_recovery_file_dest_size. Just select it, press ENTER and the
+parameter name will be inserted at the cursor position.
+
+The fuzzy list contains also the item type in order to be able to further
+select just the items type you want. For example, you may input:
+
+recovery;:param
+
+and just the parameters which contains the pattern "recovery" will be shown.
+You may customize the searchable database items by modifying the following sql
+script:
+
+&rt/vorax/sql/search.sql
+
+The VoraX fuzzy search feature depends on the FuzzyFinder plugin. Please see
+the next section about VoraX integration.
+
+==============================================================================
+EXPLAIN PLANS                                             *vorax-explain-plan*
+
+VoraX allows you to get two kinds of explain plans for a statement: a detailed 
+one or a traceonly plan respectively. The corresponding default key mappings 
+are:
+
+<Leader> vp   : get a detailed explain plan
+<Leader> vpo  : get a traceonly explain plan
+
+The statement to be explained is assumed to be the one under cursor or the 
+visual selected text. Usually, the detailed explain plan implies that the
+statement is executed, whiles the traceonly shows just the most likely plan
+without running the query.
+
+The default VoraX implementation for getting the detailed explain plan relies 
+on the DBMS_XPLAN package. If this is not appropriate for your environment you 
+may change the &rtp/vorax/sql/explain.sql script and switch to AUTOTRACE or 
+other methods.
+
+The default implementation for traceonly explain plan relies on the AUTOTRACE
+sqlplus feature but you may change the whole logic by modifying the
+explain_only.sql file, located within &rtp/vorax/sql directory.
+
+==============================================================================
+SEARCH ORACLE DOCUMENTATION                                 *vorax-oracle-doc*
+
+You may quickly search for something into the Oracle html documentation
+directly in VoraX. However, if you want this feature, you have to configure it
+first.
+
+Oradoc search needs the "swish-e" tool which has to be installed on your
+computer. Swish-e executable must be in your $PATH. It is available for 
+download at:
+
+	http://swish-e.org/download/index.html
+
+You also need the oracle documentation pack for your server, documentation which 
+is usually available on the Oracle site. Unpack the documentation archive under 
+your desired directory or, for an easy configuration, directly under 
+&rtp/vorax/oradoc/public.
+
+Open VIM/VoraX (there's no need to connect to a database) and 
+   - if you have the documentation into &rtp/vorax/oradoc/public invoke:
+	   :VoraxHelpBuildIndex
+
+   - if you have the oracle documentation into another non-default location: 
+	   :VoraxHelpBuildIndex <dir_with_your_oracle_doc>
+
+The above command will start to index all the HTML files and, at the end, will
+provide several statistics. It may happen some parsing errors to be displayed
+but you should safely ignore them. The help indexing is a one time only
+operation and should not be done again unless you add or remove documentation.
+
+Now, everything is ready for searching. You may search for something using:
+
+	:VoraxHelp
+	:VoraxHelp <pattern>
+	
+	or
+
+	press K to get help for the word under cursor.
+
+If help references are found for the provided term then a special buffer will be
+opened. You may inspect there all these entries and, in order to see the help,
+you must select the corresponding entry and press ENTER or "o". The
+documentation page will be followed using your configured external browser.
+The browser to be used is set by g:vorax_oradoc_open_with global variable.
+
+==============================================================================
+INTEGRATION                                                *vorax-integration*
+
+VoraX integrates with NERDTree plugin. It creates a key map in order to
+execute an sql file directly from the NERDTree explorer. Select the file you
+want to execute and press '@' key. This key works only for those files which
+have the '.sql' extension or an extension specified in
+g:vorax_db_explorer_file_extenstions.
+
+NERDTree plugin is available at: 
+http://www.vim.org/scripts/script.php?script_id=1658
+
+The second plugin which may be used nicely together with VoraX is XpTemplates.
+VoraX defines some useful snippets for faster sql/plsql editing. I chosen
+XpTemplates over snipMate because it integrates better with SuperTab plugin.
+However, pay attention that using both, XpTemplates and SnipMate, may cause
+problems.
+
+XpTemplates plugin is available at:
+http://www.vim.org/scripts/script.php?script_id=2611
+
+TagList is another nice plugin which may be used with VoraX. It provides a
+code navigation browser for the Oracle packages and some sql files (e.g.
+tables).
+
+TagList plugin is available at:
+http://www.vim.org/scripts/script.php?script_id=273
+
+FuzzyFinder is a must plugin if you want to fuzzy search for various database
+items.
+
+FuzzyFinder is available at:
+http://www.vim.org/scripts/script.php?script_id=1984
+
+vim:ts=8 sw=8 noexpandtab tw=78 ft=help:
