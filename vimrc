@@ -29,7 +29,7 @@ set cursorline         " show a bar over the line with the cursor
 set encoding=utf-8     " utf-8 is great
 set display=lastline   " display partial lines at end of screen
 set hidden             " allow unwritten buffers to hide
-set history=50         " keep 50 lines of command line history
+set history=500        " keep 500 lines of command line history
 set lazyredraw         " don't update screen wile executing macros
 set number             " show line numbers
 set ruler              " show the cursor position all the time
@@ -60,6 +60,7 @@ set gdefault        " default s///g on substitutions
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set shiftround      " make indent command "round" to multiple of 'shiftwidth'
 set expandtab
 
 " Put backup, undo, and swap files somewhere other that pwd

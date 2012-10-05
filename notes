@@ -1,0 +1,14 @@
+Janus is the "ohmyzsh for vim" project:
+https://github.com/carlhuda/janus/
+
+UltipSnips seems to be a better Snipmate
+
+CtrlP might be better than Command-T but I doubt it's as fast
+so I need to see if the extra features are worth the slowdown
+
+EasyMotion might be cool
+
+NrrwRgn could be useful if I remembered to use it
+(why not just use ranges and gv?)
+
+Buffergator could be better than BufExplorer
