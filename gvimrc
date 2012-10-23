@@ -17,7 +17,7 @@
 "set ch=2               " Make command line two lines high
 
 set mousehide           " Hide the mouse when typing text
-set mousefocus          " activate window with mouse over it automatically
+"set mousefocus          " activate window with mouse over it automatically
 
 " TODO: does this change anything? seems like the default now...
 " I like highlighting strings inside C comments
