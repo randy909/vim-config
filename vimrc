@@ -175,11 +175,10 @@ colorscheme solarized
 "highlight ExtraWhitespace ctermbg=16 guibg=#232526
 "match ExtraWhitespace /\s\+\%#\@<!$/
 
-let mapleader = ","
 
-" make alt-j/k go up/down by screen line instead of file line
-nnoremap <A-j> gj
-nnoremap <A-k> gk
+" Mappings
+
+let mapleader = ","
 
 " use ; for : too so I don't have to hit <shift>
 nnoremap ; :
@@ -189,6 +188,10 @@ nnoremap q; q:
 " replace ; and , with <space> and <shift-space>
 nnoremap <space> ;
 nnoremap <S-space> ,
+
+" make alt-j/k go up/down by screen line instead of file line
+nnoremap <A-j> gj
+nnoremap <A-k> gk
 
 " Create newlines easily in normal mode
 " The second one splits the line where the cursor is
@@ -212,6 +215,13 @@ if has("gui_running")
   vmap <A-[> <gv
   vmap <A-]> >gv
 endif
+
+" Put search item at the top of the screen
+nnoremap <A-n>   nzt
+nnoremap <A-S-n> Nzt
+
+
+" Plugin config
 
 " Indents (=) the entire file.
 nmap <leader>= :call Preserve("normal gg=G")<CR>
@@ -298,10 +308,5 @@ inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 
 nmap <silent> <Leader><space> :BufExplorer<CR>
 
-" Put search item at the top of the screen
-nnoremap <A-n>   nzt
-nnoremap <A-S-n> Nzt
-
-" TODO: install the syntastic plugin for realtime syntax checking
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
