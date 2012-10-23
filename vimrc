@@ -274,6 +274,22 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 
+" Easymotion mappings
+let g:EasyMotion_mapping_f = '<leader>f'
+let g:EasyMotion_mapping_F = '<leader>F'
+let g:EasyMotion_mapping_t = '<leader><leader>t'
+let g:EasyMotion_mapping_T = '<leader><leader>T'
+let g:EasyMotion_mapping_w = '<leader>w'
+let g:EasyMotion_mapping_W = '<leader>W'
+let g:EasyMotion_mapping_b = '<leader>b'
+let g:EasyMotion_mapping_B = '<leader>B'
+let g:EasyMotion_mapping_e = '<leader>e'
+let g:EasyMotion_mapping_E = '<leader>E'
+let g:EasyMotion_mapping_j = '<leader>j'
+let g:EasyMotion_mapping_k = '<leader>k'
+let g:EasyMotion_mapping_n = '<leader>n'
+let g:EasyMotion_mapping_N = '<leader>N'
+
 " map <C-/> and <A-/> to toggle comment and leave originals intact
 " <A-/> is a workaround for gvim not allowing <C-/> mapping
 " TODO: submit a patch to gvim to fix this.
