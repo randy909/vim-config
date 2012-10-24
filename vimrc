@@ -275,8 +275,8 @@ let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 
 " Easymotion mappings
-let g:EasyMotion_mapping_f = '<leader>f'
-let g:EasyMotion_mapping_F = '<leader>F'
+let g:EasyMotion_mapping_f = 'f'
+let g:EasyMotion_mapping_F = 'F'
 let g:EasyMotion_mapping_t = '<leader><leader>t'
 let g:EasyMotion_mapping_T = '<leader><leader>T'
 let g:EasyMotion_mapping_w = '<leader>w'
