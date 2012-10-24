@@ -253,9 +253,6 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\!\|£\|\$\|_\|["'']\s*\S\)'
 " make delimitmate put extra <cr> after open bracket
 let delimitMate_expand_cr = 1
 
-" enable all modes for FuzzyFinder
-let g:fuf_modesDisable = []
-
 " CommandT prefs
 let g:CommandTMatchWindowReverse=1
 let g:CommandTMaxHeight=30
