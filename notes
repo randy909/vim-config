@@ -6,9 +6,22 @@ UltipSnips seems to be a better Snipmate
 CtrlP might be better than Command-T but I doubt it's as fast
 so I need to see if the extra features are worth the slowdown
 
-EasyMotion might be cool
+<S-CR> (shift-enter) could be used for something cool
 
 NrrwRgn could be useful if I remembered to use it
 (why not just use ranges and gv?)
 
 Buffergator could be better than BufExplorer
+or Bufkill if not using a buffer manager
+
+Eclim:
+:JavaSearch Blah sometimes works when :JavaSearch (cursor over Blah) does not.
+:JavaSearchContext also fails in that context.
+
+YankRing fights with easymotion :\
+YR does seem pretty intrusive and I rarely actually use it...
+YankRing has a newer version
+
+TagBar has a newer version
+
+Vorax fights with easymotion to update the status line while executing
