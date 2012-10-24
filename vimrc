@@ -290,20 +290,6 @@ let g:EasyMotion_mapping_k = '<leader>k'
 let g:EasyMotion_mapping_n = '<leader>n'
 let g:EasyMotion_mapping_N = '<leader>N'
 
-" map <C-/> and <A-/> to toggle comment and leave originals intact
-" <A-/> is a workaround for gvim not allowing <C-/> mapping
-" TODO: submit a patch to gvim to fix this.
-if has("gui_running")
-  nmap <A-/> <Plug>NERDCommenterToggle
-  vmap <A-/> <Plug>NERDCommenterToggle
-else
-  nmap  <Plug>NERDCommenterToggle
-  vmap  <Plug>NERDCommenterToggle
-endif
-
-nmap <leader>c<space> <Plug>NERDCommenterToggle
-vmap <leader>c<space> <Plug>NERDCommenterToggle
-
 " map <F2> to toggle NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<cr>
 inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>

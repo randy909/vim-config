@@ -92,8 +92,8 @@ nnoremap <silent>* :let v:errmsg=''<cr>:silent! norm! *<cr>:call <SID>ShowCurren
 nnoremap <silent># :let v:errmsg=''<cr>:silent! norm! #<cr>:call <SID>ShowCurrentSearchIndex(0,'!')<cr>
 
 
-nnoremap <silent>\/        :call <SID>ShowCurrentSearchIndex(1,'')<cr>
-nnoremap <silent>\\        :call <SID>ShowCurrentSearchIndex(1,'')<cr>
+" nnoremap <silent>\/        :call <SID>ShowCurrentSearchIndex(1,'')<cr>
+" nnoremap <silent>\\        :call <SID>ShowCurrentSearchIndex(1,'')<cr>
 nnoremap <silent>g/        :call <SID>ShowCurrentSearchIndex(1,'')<cr>
 
 
