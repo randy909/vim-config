@@ -266,11 +266,6 @@ set wildignore+=*.class,*.o,*.obj,*/target/*
 "  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-" Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
-
 " Easymotion mappings
 let g:EasyMotion_mapping_f = 'f'
 let g:EasyMotion_mapping_F = 'F'
