@@ -147,12 +147,6 @@ nnoremap <S-space> ,
 nnoremap <A-j> gj
 nnoremap <A-k> gk
 
-" Create newlines easily in normal mode
-" The second one splits the line where the cursor is
-" nnoremap <CR> o<ESC>    this screws up quickfix jumping to files
-nnoremap <S-CR> o<ESC>
-nnoremap <C-CR> i<CR><ESC>k$
-
 " Map <C-hjkl> to move between windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
