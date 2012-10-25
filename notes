@@ -11,7 +11,9 @@ so I need to see if the extra features are worth the slowdown
 NrrwRgn could be useful if I remembered to use it
 (why not just use ranges and gv?)
 
-Buffergator could be better than BufExplorer
+Buffergator is better than BufExplorer
+CommantTBuffer might be good too
+    (but it doesn't show you which files were modified, do i care?)
 or Bufkill if not using a buffer manager
 
 Eclim:
@@ -25,3 +27,5 @@ YankRing has a newer version
 TagBar has a newer version
 
 Vorax fights with easymotion to update the status line while executing
+
+space.vim looks awesome
