@@ -248,7 +248,8 @@ inoremap <silent> <F4> <ESC>:TagbarToggle<cr>
 nnoremap <silent> <F5> :GundoToggle<CR>
 inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 
-nmap <silent> <Leader><space> :BufExplorer<CR>
+nmap <silent> <Leader><space> :CommandTBuffer<CR>
+
 
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
