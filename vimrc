@@ -217,18 +217,19 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 " Easymotion mappings
 let g:EasyMotion_mapping_f = 'f'
 let g:EasyMotion_mapping_F = 'F'
-let g:EasyMotion_mapping_t = '<leader><leader>t'
-let g:EasyMotion_mapping_T = '<leader><leader>T'
-let g:EasyMotion_mapping_w = '<leader>w'
-let g:EasyMotion_mapping_W = '<leader>W'
-let g:EasyMotion_mapping_b = '<leader>b'
-let g:EasyMotion_mapping_B = '<leader>B'
-let g:EasyMotion_mapping_e = '<leader>e'
-let g:EasyMotion_mapping_E = '<leader>E'
 let g:EasyMotion_mapping_j = '<leader>j'
 let g:EasyMotion_mapping_k = '<leader>k'
-let g:EasyMotion_mapping_n = '<leader>n'
-let g:EasyMotion_mapping_N = '<leader>N'
+" doubtful i'll ever use these, we'll see
+let g:EasyMotion_mapping_t = '<leader><leader>t'
+let g:EasyMotion_mapping_T = '<leader><leader>T'
+let g:EasyMotion_mapping_w = '<leader><leader>w'
+let g:EasyMotion_mapping_W = '<leader><leader>W'
+let g:EasyMotion_mapping_b = '<leader><leader>b'
+let g:EasyMotion_mapping_B = '<leader><leader>B'
+let g:EasyMotion_mapping_e = '<leader><leader>e'
+let g:EasyMotion_mapping_E = '<leader><leader>E'
+let g:EasyMotion_mapping_n = '<leader><leader>n'
+let g:EasyMotion_mapping_N = '<leader><leader>N'
 
 " map <F2> to toggle NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<cr>
