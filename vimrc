@@ -231,6 +231,10 @@ let g:EasyMotion_mapping_E = '<leader><leader>E'
 let g:EasyMotion_mapping_n = '<leader><leader>n'
 let g:EasyMotion_mapping_N = '<leader><leader>N'
 
+let g:buffergator_suppress_keymaps = 1
+let g:buffergator_sort_regime = 'mru'
+nnoremap <silent> <Leader><space> :BuffergatorToggle<CR>
+
 " map <F2> to toggle NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<cr>
 inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
@@ -248,9 +252,6 @@ inoremap <silent> <F4> <ESC>:TagbarToggle<cr>
 " map <F5> to toggle Gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
 inoremap <silent> <F5> <ESC>:GundoToggle<CR>
-
-nmap <silent> <Leader><space> :CommandTBuffer<CR>
-
 
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
