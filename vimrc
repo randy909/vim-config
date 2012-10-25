@@ -168,6 +168,10 @@ endif
 nnoremap <A-n>   nzt
 nnoremap <A-S-n> Nzt
 
+" Use ctrl-j/k for up/down in autocomplete menu
+" Unfortunately there are no direct mappings for just autocomplete menu mode
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
 
 " Plugin config
 
