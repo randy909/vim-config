@@ -1,0 +1,32 @@
+Getting vorax 2.8.7 to work with the new vim compiled against ruby 1.9.1 was a challenge.
+
+In the past I had ruby 1.9.2 on my path compiled from source.
+Ubuntu's vim used to use ruby 1.8.7.
+In the distant past I had both vim and ruby compiled from source (for command-t).
+When I updated ubuntu to 12.10 I got errors from the vorax script.
+    - First about the version of ruby (just commented out the check in vorax.vim)
+    - Then about antlr, which is weird because it worked before with that version of ruby (1.9.2)
+    - Also some flakiness iirc when running sql commands
+    - A long lag time when closing vim.
+
+Trying to fix the issues I ended up uninstalling my self-compiled version of ruby 1.9.2
+I installed 1.9.1 (which turned out to be 1.9.3) and ruby-switch, not sure the motivation at that point.
+
+I then had a lengthy fight with gem install antlr3 which claimed to install antlr3 successfully
+but I could never find the stinking file on the filesystem.
+So I finally figured out that setting GEM_HOME and running gem install (without sudo) got
+the antlr3 gem installed ok.
+
+Vorax seems to be reasonably happy in this state (assuming ruby 1.9.1 vim bindings which is surely sub-optimal):
+    - ruby/gem1.8.7 on the path (actually it seems happy with ubuntu's 1.9.3 as well)
+    - GEM_HOME set to $HOME/.gem
+    - gem install antlr3
+
+It all seems to boil down to the antlr3 install. Why that was suddenly an issue is a mystery.
+Now I know how gems work I guess...
+
+The guy seems to be working on a new version that works with ruby 1.9.1. Hopefully that'll work soon.
+I tried the master branch of the github repo he has and it failed epically.
+
+Trying to steal code from the new version seems like a losing battle, he's redone everything.
+Maybe contact him and find out if there is a simple way to fix the problem.
