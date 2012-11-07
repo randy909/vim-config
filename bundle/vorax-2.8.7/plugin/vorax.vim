@@ -24,18 +24,18 @@ if !has('ruby')
   echo "***warning*** VoraX needs ruby support"
   echohl Normal
   finish
-else
-  " is it ruby 1.8?
-  let rver = ''
-  ruby VIM.command("let rver='" + VERSION + "'")
-  if strpart(rver, 0, 3) != '1.8'
-    " check for ruby support
-    echohl WarningMsg
-    echo "***warning*** VoraX needs ruby 1.8 support 1.8. Found " . rver 
-    echohl Normal
-    finish
-  endif
 endif
+  " " is it ruby 1.8?
+  " let rver = ''
+  " ruby VIM.command("let rver='" + VERSION + "'")
+  " if strpart(rver, 0, 3) != '1.8'
+  "   " check for ruby support
+  "   echohl WarningMsg
+  "   echo "***warning*** VoraX needs ruby 1.8 support 1.8. Found " . rver 
+  "   echohl Normal
+  "   finish
+  " endif
+" endif
 
 let g:loaded_vorax = "2.8.7"
 let s:keep_cpo = &cpo
