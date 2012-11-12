@@ -37,9 +37,10 @@ set scrolloff=3        " keep 3 lines visible at top/bottom
 set showcmd            " display incomplete commands
 set tags=tags;/        " look for tags file all the way down to root
 "set ttimeout notimeout " don't timeout :mappings (i.e. <leader>)
-set ttimeoutlen=10     " make vim exit search/visual with <exc> quickly"
+set ttimeoutlen=10     " make vim exit search/visual with <exc> quickly
 set ttyfast            " draw smoother if terminal is fast
 set visualbell t_vb=   " turn off bells in all forms
+set laststatus=2       " always show a status bar (good for powerline
 
 " make cursor into a line that blinks a little slower
 set guicursor+=n-v-c:ver25-Cursor/lCursor
