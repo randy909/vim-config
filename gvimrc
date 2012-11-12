@@ -33,7 +33,9 @@ let c_comment_strings=1
 if has("win32")
   set guifont=consolas
 else
-  set guifont=Ubuntu\ Mono\ 12
+  " set guifont=Ubuntu\ Mono\ 12
+  set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
+  let g:Powerline_symbols = 'fancy'
 endif
 
 " Control window size

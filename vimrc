@@ -258,5 +258,9 @@ inoremap <silent> <F4> <ESC>:TagbarToggle<cr>
 nnoremap <silent> <F5> :GundoToggle<CR>
 inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 
+" Powerline config
+call Pl#Theme#ReplaceSegment('fileformat', 'pwd')
+call Pl#Theme#RemoveSegment('fileencoding')
+
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
