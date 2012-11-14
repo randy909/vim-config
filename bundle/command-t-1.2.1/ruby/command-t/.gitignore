@@ -1,5 +1,0 @@
-.nfs*
-ext.so
-*.o
-Makefile
-*.log
