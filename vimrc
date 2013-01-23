@@ -220,8 +220,8 @@ set wildignore+=*.class,*.o,*.obj,*/target/*
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " Easymotion mappings
-let g:EasyMotion_mapping_f = 'f'
-let g:EasyMotion_mapping_F = 'F'
+let g:EasyMotion_mapping_f = '<leader>f'
+let g:EasyMotion_mapping_F = '<leader>F'
 let g:EasyMotion_mapping_j = '<leader>j'
 let g:EasyMotion_mapping_k = '<leader>k'
 " doubtful i'll ever use these, we'll see
