@@ -262,5 +262,8 @@ inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 call Pl#Theme#ReplaceSegment('fileformat', 'pwd')
 call Pl#Theme#RemoveSegment('fileencoding')
 
+" Close hidden fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
