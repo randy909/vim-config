@@ -259,6 +259,9 @@ nnoremap <silent> <F5> :GundoToggle<CR>
 inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 
 " Powerline config
+" Make sure you're using a powerline patched font (github has some but had to
+" patch the font myself on OSX to get it working)
+let g:Powerline_symbols = 'fancy'
 call Pl#Theme#ReplaceSegment('fileformat', 'pwd')
 call Pl#Theme#RemoveSegment('fileencoding')
 

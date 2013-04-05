@@ -32,10 +32,13 @@ let c_comment_strings=1
 " Aethsetics
 if has("win32")
   set guifont=consolas
-else
-  " set guifont=Ubuntu\ Mono\ 12
-  set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
-  let g:Powerline_symbols = 'fancy'
+elseif has ("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    set guifont=Ubuntu\ Mono\ for\ Powerline:h14
+  else
+    set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
+  endif
 endif
 
 " Control window size
