@@ -41,6 +41,7 @@ set ttimeoutlen=10     " make vim exit search/visual with <exc> quickly
 set ttyfast            " draw smoother if terminal is fast
 set visualbell t_vb=   " turn off bells in all forms
 set laststatus=2       " always show a status bar (good for powerline
+set shell=/bin/sh      " fixes permission issue when using fish
 
 " make cursor into a line that blinks a little slower
 set guicursor+=n-v-c:ver25-Cursor/lCursor
