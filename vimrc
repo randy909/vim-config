@@ -58,9 +58,9 @@ set smartcase       " match uppercase if any characters are upper
 set gdefault        " default s///g on substitutions
 
 " tab settings
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround      " make indent command "round" to multiple of 'shiftwidth'
 set expandtab
 
