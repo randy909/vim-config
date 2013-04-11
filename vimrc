@@ -217,7 +217,7 @@ set wildignore+=*.class,*.o,*.obj,*/target/*
 " can find it every time. maybe install it in the vimfiles directory
 " or figure out how to use $HOME/bin from the 'let blah' variables
 "  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --nocolor --nogroup --column"
 
 " Easymotion mappings
 let g:EasyMotion_mapping_f = '<leader>f'
