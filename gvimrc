@@ -36,6 +36,12 @@ elseif has ("unix")
   let s:uname = system("uname")
   if s:uname == "Darwin\n"
     set guifont=Ubuntu\ Mono\ for\ Powerline:h14
+"    this one doesn't have italics or bold
+"    set guifont=Menlo\ for\ Powerline:h12
+"    this one has italics and the powerline stuff seems to work.
+"    I'm skeptical it would continue working after a reboot though.
+"    Looks similar to ubuntu mono but it's just not as pretty.
+"    set guifont=Menlo:h12
   else
     set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
   endif
