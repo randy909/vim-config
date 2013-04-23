@@ -270,5 +270,10 @@ call Pl#Theme#RemoveSegment('fileencoding')
 " Close hidden fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" Ultisnips conf
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
