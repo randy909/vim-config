@@ -260,6 +260,12 @@ inoremap <silent> <F4> <ESC>:TagbarToggle<cr>
 nnoremap <silent> <F5> :GundoToggle<CR>
 inoremap <silent> <F5> <ESC>:GundoToggle<CR>
 
+" map <leader>s to format code
+nnoremap <leader>s :Autoformat<CR><CR>
+" AutoFormat won't take a range but gq will use it instead of doing the
+" default crazy behavior
+vmap <leader>s gq
+
 " Powerline config
 " Make sure you're using a powerline patched font (github has some but had to
 " patch the font myself on OSX to get it working)
