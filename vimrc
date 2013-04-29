@@ -281,8 +281,5 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-" Tern
-so ~/my/opt/tern/vim/tern.vim
-
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
