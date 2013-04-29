@@ -275,11 +275,6 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-" Jsbeautify
-autocmd FileType javascript noremap <buffer> <leader>s :call JsBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>s :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <leader>s :call CSSBeautify()<cr>
-
 " Tern
 so ~/my/opt/tern/vim/tern.vim
 
