@@ -46,9 +46,9 @@ vmap <leader>x "+x
 noremap  <leader>a ggVG
 vnoremap <leader>a <C-C>ggVG
 
-if exists("g:onmac")
-  cmap     <M-V>      <C-R>+
-else
+" This check isn't strictly necessary since these keys don't even seem
+" available on mac
+if !exists("g:onmac")
   " SHIFT-Del is Cut
   vnoremap <S-Del>    "+x
 
@@ -58,16 +58,6 @@ else
   " SHIFT-Insert is Paste
   map <S-Insert>      "+gP
   cmap <S-Insert>     <C-R>+
-
-  " Pasting blockwise and linewise selections is not possible in Insert and
-  " Visual mode without the +virtualedit feature.  They are pasted as if they
-  " were characterwise instead.
-  " Uses the paste.vim autoload script.
-  " This doesn't appear to be necessary on mac. Check the new mswin.vim file
-  " to see if it's still there?
-
-  exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
-  exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
 endif
 
 " restore 'cpoptions'
