@@ -19,3 +19,6 @@
 [submodule "bundle/tern_for_vim"]
 	path = bundle/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim
+[submodule "bundle/vim-yankstack"]
+	path = bundle/vim-yankstack
+	url = https://github.com/maxbrunsfeld/vim-yankstack

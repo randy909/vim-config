@@ -246,11 +246,10 @@ nnoremap <silent> <Leader><space> :BuffergatorToggle<CR>
 nnoremap <silent> <F2> :NERDTreeToggle<cr>
 inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
 
-" map <F3> to show/close YankRing buffer
-" TODO: it would be cool if when you F3 from insert mode it would go back to
-" insert mode after you paste
-nnoremap <silent> <F3> :YRShow<cr>
-inoremap <silent> <F3> <ESC>:YRShow<cr>
+" Yankstack config
+nnoremap <silent> <F3> :Yanks<cr>
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " map <F4> to toggle Tagbar
 nnoremap <silent> <F4> :TagbarToggle<cr>
