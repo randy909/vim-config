@@ -22,76 +22,53 @@ set selection=inclusive " include last char on line when mouse selecting
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-" backspace in Visual mode deletes selection
-vnoremap <BS> d
-
-" CTRL-X and SHIFT-Del are Cut
-vnoremap <C-X>      "+x
-vnoremap <S-Del>    "+x
-
-" CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C>      "+ygv
-vnoremap <C-Insert> "+y
-
-" CTRL-V and SHIFT-Insert are Paste
-map <C-V>           "+gP
-map <S-Insert>      "+gP
-
-cmap <C-V>          <C-R>+
-cmap <S-Insert>     <C-R>+
-
-" Pasting blockwise and linewise selections is not possible in Insert and
-" Visual mode without the +virtualedit feature.  They are pasted as if they
-" were characterwise instead.
-" Uses the paste.vim autoload script.
-
-exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
-exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
-
-imap <S-Insert>     <C-V>
-vmap <S-Insert>     <C-V>
-
-" Use CTRL-Q or F9 to do what CTRL-V used to do
-" <C-Q> doesn't work with xterm so F9 is an alternative
-" TODO: get to the bottom of this
-noremap <C-Q>       <C-V>
-noremap <F9>        <C-V>
-inoremap <F9>       <C-V>
-
-" Use CTRL-S for saving, also in Insert mode
-noremap  <C-S>      :update<CR>
-vnoremap <C-S>      <C-C>:update<CR>
-inoremap <C-S>      <C-O>:update<CR>
-
-" For CTRL-V to work autoselect must be off.
-" On Unix we have two selections, autoselect can be used.
-if !has("unix")
-  set guioptions-=a
+" TODO: put this somewhere shared. Maybe set it globally.
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    let g:onmac = 1
+  endif
 endif
 
-" CTRL-Z is Undo; not in cmdline though
-noremap  <C-Z> u
-inoremap <C-Z> <C-O>u
+" leader-c is copy to clipboard
+nmap <leader>c "+y
+vmap <leader>c "+y
 
-" CTRL-A is Select all
-noremap  <C-A> ggVG
-inoremap <C-A> <C-O>gg<C-O>VG
-cnoremap <C-A> <C-C>ggVG
-onoremap <C-A> <C-C>ggVG
-snoremap <C-A> <C-C>ggVG
-xnoremap <C-A> <C-C>ggVG
+" leader-v is paste from clipboard
+nmap <leader>v "+gP
+vmap <leader>v "+gP
 
-" Use <F12> to do what <C-A> used to (increment number under cursor)
-noremap <F12> <C-A>
+" leader-x is cut to clipboard
+nmap <leader>x "+x
+vmap <leader>x "+x
 
-" TODO: hmmm, didn't know this would work, could maybe use this for snipmate
-" complete or delimitmate skip since snipmate steals <s-tab> or I could just
-" patch the code in snipmate or delimitmate to be friendly.
-" CTRL-Tab is Next window
-noremap  <C-Tab> <C-W>w
-inoremap <C-Tab> <C-O><C-W>w
-cnoremap <C-Tab> <C-C><C-W>w
-onoremap <C-Tab> <C-C><C-W>w
+" leader-A is Select all
+noremap  <leader>a ggVG
+vnoremap <leader>a <C-C>ggVG
+
+if exists("g:onmac")
+  cmap     <M-V>      <C-R>+
+else
+  " SHIFT-Del is Cut
+  vnoremap <S-Del>    "+x
+
+  " CTRL-Insert is Copy
+  vnoremap <C-Insert> "+y
+
+  " SHIFT-Insert is Paste
+  map <S-Insert>      "+gP
+  cmap <S-Insert>     <C-R>+
+
+  " Pasting blockwise and linewise selections is not possible in Insert and
+  " Visual mode without the +virtualedit feature.  They are pasted as if they
+  " were characterwise instead.
+  " Uses the paste.vim autoload script.
+  " This doesn't appear to be necessary on mac. Check the new mswin.vim file
+  " to see if it's still there?
+
+  exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
+  exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
+endif
 
 " restore 'cpoptions'
 set cpo&

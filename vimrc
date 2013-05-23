@@ -15,6 +15,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+let mapleader = ","
+
 " source the files living next to this one
 source <sfile>:p:h/mswin.vim
 source <sfile>:p:h/funrc.vim
@@ -133,8 +135,6 @@ colorscheme solarized
 
 
 " Mappings
-
-let mapleader = ","
 
 " use ; for : too so I don't have to hit <shift>
 nnoremap ; :
