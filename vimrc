@@ -238,6 +238,7 @@ let g:EasyMotion_mapping_E = '<leader><leader>E'
 let g:EasyMotion_mapping_n = '<leader><leader>n'
 let g:EasyMotion_mapping_N = '<leader><leader>N'
 
+let g:buffergator_viewport_split_policy = 'B'
 let g:buffergator_suppress_keymaps = 1
 let g:buffergator_sort_regime = 'mru'
 nnoremap <silent> <Leader><space> :BuffergatorToggle<CR>
