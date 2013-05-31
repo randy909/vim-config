@@ -100,6 +100,10 @@ filetype off  "prepare to load pathogen
 call pathogen#runtime_append_all_bundles() "load pathogen
 filetype plugin indent on
 
+" This makes yankstack play nice with surround
+" i.e. it lets surround map S in visual mode
+call yankstack#setup()
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
