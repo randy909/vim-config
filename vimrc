@@ -123,6 +123,8 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
+autocmd BufNewFile,BufRead *.hjs set filetype=html
+
 " TODO: disabling this for now since I'm printing middle dots instead.
 " I think it should be moved to the molokai syntax file since sometimes this
 " just flakes out and stops working, especially when i've got multiple buffers
