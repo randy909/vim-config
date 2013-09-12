@@ -179,6 +179,17 @@ endif
 nnoremap <A-n>   nzt
 nnoremap <A-S-n> Nzt
 
+" command-<num> jumps to tab just like chrome, iterm, etc.
+nnoremap <D-1> 1gt
+nnoremap <D-2> 2gt
+nnoremap <D-3> 3gt
+nnoremap <D-4> 4gt
+nnoremap <D-5> 5gt
+nnoremap <D-6> 6gt
+nnoremap <D-7> 7gt
+nnoremap <D-8> 8gt
+nnoremap <D-9> 9gt
+
 " Use ctrl-j/k for up/down in autocomplete menu
 " Unfortunately there are no direct mappings for just autocomplete menu mode
 " These seem to be squashed by YouCompleteMe or Ultisnips for some reason
