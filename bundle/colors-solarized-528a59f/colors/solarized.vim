@@ -784,11 +784,14 @@ exe "hi! perlStatementStorage" . s:fg_yellow .s:bg_back   .s:fmt_none
 exe "hi! jsFuncCall"     . s:fg_blue    .s:bg_back   .s:fmt_none
 exe "hi! jsObjectKey"    . s:fg_violet  .s:bg_back   .s:fmt_none
 exe "hi! jsFunctionKey"  . s:fg_violet  .s:bg_back   .s:fmt_none
-exe "hi! jsBrackets"     . s:fg_red     .s:bg_back   .s:fmt_none
+exe "hi! jsBrackets"     . s:fg_blue    .s:bg_back   .s:fmt_none
 exe "hi! jsBraces"       . s:fg_yellow  .s:bg_back   .s:fmt_none
 exe "hi! jsFuncBraces"   . s:fg_yellow  .s:bg_back   .s:fmt_none
 exe "hi! jsParens"       . s:fg_orange  .s:bg_back   .s:fmt_none
 exe "hi! jsFuncParens"   . s:fg_orange  .s:bg_back   .s:fmt_none
+exe "hi! jsParensErrA"   . s:fg_base2   .s:bg_red    .s:fmt_none
+exe "hi! jsParensErrB"   . s:fg_base2   .s:bg_red    .s:fmt_none
+exe "hi! jsParensErrC"   . s:fg_base2   .s:bg_red    .s:fmt_none
 
 "}}}
 " tex highlighting "{{{
