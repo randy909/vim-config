@@ -789,6 +789,7 @@ exe "hi! jsBraces"       . s:fg_yellow  .s:bg_back   .s:fmt_none
 exe "hi! jsFuncBraces"   . s:fg_yellow  .s:bg_back   .s:fmt_none
 exe "hi! jsParens"       . s:fg_orange  .s:bg_back   .s:fmt_none
 exe "hi! jsFuncParens"   . s:fg_orange  .s:bg_back   .s:fmt_none
+exe "hi! jsParensError"  . s:fg_base2   .s:bg_red    .s:fmt_none
 exe "hi! jsParensErrA"   . s:fg_base2   .s:bg_red    .s:fmt_none
 exe "hi! jsParensErrB"   . s:fg_base2   .s:bg_red    .s:fmt_none
 exe "hi! jsParensErrC"   . s:fg_base2   .s:bg_red    .s:fmt_none
