@@ -35,7 +35,7 @@ if has("win32")
 elseif has ("unix")
   let s:uname = system("uname")
   if s:uname == "Darwin\n"
-    set guifont=Ubuntu\ Mono\ for\ Powerline:h14
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline:h14
 "    this one doesn't have italics or bold
 "    set guifont=Menlo\ for\ Powerline:h12
 "    this one has italics and the powerline stuff seems to work.
