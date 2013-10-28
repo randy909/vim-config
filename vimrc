@@ -98,8 +98,7 @@ if has('mouse')
   set mouse=a
 endif
 
-filetype off  "prepare to load pathogen
-call pathogen#runtime_append_all_bundles() "load pathogen
+execute pathogen#infect()
 filetype plugin indent on
 
 " This makes yankstack play nice with surround
