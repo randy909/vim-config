@@ -99,6 +99,7 @@ if has('mouse')
 endif
 
 execute pathogen#infect()
+execute pathogen#helptags()
 filetype plugin indent on
 
 " This makes yankstack play nice with surround
