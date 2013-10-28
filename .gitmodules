@@ -58,3 +58,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "bundle/hexHighlight"]
+	path = bundle/hexHighlight
+	url = https://github.com/vim-scripts/hexHighlight.vim
