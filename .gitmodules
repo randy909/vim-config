@@ -61,3 +61,6 @@
 [submodule "bundle/hexHighlight"]
 	path = bundle/hexHighlight
 	url = https://github.com/vim-scripts/hexHighlight.vim
+[submodule "bundle/gundo.vim"]
+	path = bundle/gundo.vim
+	url = https://github.com/sjl/gundo.vim.git
