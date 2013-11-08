@@ -164,6 +164,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Map <C-l> to complete line (workaround for YouCompleteMe always having
+" completion started)
+inoremap <C-l> <C-x><C-l>
+
 " Clear search highlighting
 nnoremap <silent> <leader>/ :noh<cr>
 
