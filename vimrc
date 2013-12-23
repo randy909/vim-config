@@ -290,12 +290,25 @@ nnoremap <leader>s :Autoformat<CR><CR>
 " default crazy behavior
 vmap <leader>s gq
 
+" TODO: fix up this powerline/airline thing. need to switch file type for pwd
+" or something like that... see what i had here for powerline prior to
+" switching to airline
 " Powerline config
 " Make sure you're using a powerline patched font (github has some but had to
 " patch the font myself on OSX to get it working)
-let g:Powerline_symbols = 'fancy'
-call Pl#Theme#ReplaceSegment('fileformat', 'pwd')
-call Pl#Theme#RemoveSegment('fileencoding')
+" let g:Powerline_symbols = 'fancy'
+" call Pl#Theme#ReplaceSegment('fileformat', 'pwd')
+" call Pl#Theme#RemoveSegment('fileencoding')
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " Close hidden fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
