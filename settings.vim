@@ -7,7 +7,14 @@ let mapleader = ","
 
 " source the files living next to this one
 source <sfile>:p:h/mswin.vim
-source <sfile>:p:h/funrc.vim
+
+" My own halfway point between behave mswin and xterm
+set mousemodel=popup " right click should popup not extend
+set keymodel=startsel,stopsel " allow shift-<end> style selection
+set selection=inclusive " include last char on line when mouse selecting
+
+" backspace and cursor keys wrap to previous/next line
+set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 " make visual block work the way it should (go past end of line).
 " might also want to experiment with "onemore" in addition to "block" -

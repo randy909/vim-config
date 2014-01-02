@@ -7,6 +7,7 @@
 
 " source the files living next to this one
 source <sfile>:p:h/settings.vim
+source <sfile>:p:h/funrc.vim
 
 execute pathogen#infect()
 execute pathogen#helptags()

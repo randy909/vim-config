@@ -14,14 +14,6 @@ if 1	" only do this when compiled with expression evaluation
 endif
 set cpo&vim
 
-" My own halfway point between behave mswin and xterm
-set mousemodel=popup " right click should popup not extend
-set keymodel=startsel,stopsel " allow shift-<end> style selection
-set selection=inclusive " include last char on line when mouse selecting
-
-" backspace and cursor keys wrap to previous/next line
-set backspace=indent,eol,start whichwrap+=<,>,[,]
-
 " TODO: put this somewhere shared. Maybe set it globally.
 if has("unix")
   let s:uname = system("uname")
