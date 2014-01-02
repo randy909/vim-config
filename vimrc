@@ -30,9 +30,6 @@ autocmd BufReadPost *
 " plugin) http://www.mail-archive.com/vim_use@googlegroups.com/msg17539.html
 autocmd FocusGained * call getchar(0)
 
-" syntax highlighting stuff
-set t_Co=256 " enable more colors for vim, gvim ignores it
-syntax on
 call togglebg#map("<F8>")
 "let g:solarized_contrast="high"
 let g:solarized_termcolors=256

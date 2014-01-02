@@ -85,3 +85,7 @@ set list
 if has('mouse')
   set mouse=a
 endif
+
+" syntax highlighting stuff
+set t_Co=256 " enable more colors for vim, gvim ignores it
+syntax on
