@@ -7,6 +7,7 @@
 
 " source the files living next to this one
 source <sfile>:p:h/settings.vim
+source <sfile>:p:h/mappings.vim
 source <sfile>:p:h/funrc.vim
 
 execute pathogen#infect()
@@ -50,63 +51,6 @@ autocmd BufNewFile,BufRead *.hjs set filetype=html
 "highlight ExtraWhitespace ctermbg=16 guibg=#232526
 "match ExtraWhitespace /\s\+\%#\@<!$/
 
-
-" Mappings
-
-" use ; for : too so I don't have to hit <shift>
-nnoremap ; :
-vnoremap ; :
-nnoremap q; q:
-
-" replace ; and , with <space> and <shift-space>
-nnoremap <space> ;
-nnoremap <S-space> ,
-
-" make alt-j/k go up/down by screen line instead of file line
-nnoremap <A-j> gj
-nnoremap <A-k> gk
-
-" Map <C-hjkl> to move between windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Map <C-l> to complete line (workaround for YouCompleteMe always having
-" completion started)
-inoremap <C-l> <C-x><C-l>
-
-" Clear search highlighting
-nnoremap <silent> <leader>/ :noh<cr>
-
-" Give Textmate's indentation commands a whirl
-if has("gui_running")
-  nmap <A-[> <<
-  nmap <A-]> >>
-  vmap <A-[> <gv
-  vmap <A-]> >gv
-endif
-
-" Put search item at the top of the screen
-nnoremap <A-n>   nzt
-nnoremap <A-S-n> Nzt
-
-" command-<num> jumps to tab just like chrome, iterm, etc.
-nnoremap <D-1> 1gt
-nnoremap <D-2> 2gt
-nnoremap <D-3> 3gt
-nnoremap <D-4> 4gt
-nnoremap <D-5> 5gt
-nnoremap <D-6> 6gt
-nnoremap <D-7> 7gt
-nnoremap <D-8> 8gt
-nnoremap <D-9> 9gt
-
-" Use ctrl-j/k for up/down in autocomplete menu
-" Unfortunately there are no direct mappings for just autocomplete menu mode
-" These seem to be squashed by YouCompleteMe or Ultisnips for some reason
-" inoremap <C-j> <C-n>
-" inoremap <C-k> <C-p>
 
 " Plugin config
 

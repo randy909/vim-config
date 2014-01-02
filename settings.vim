@@ -3,11 +3,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-let mapleader = ","
-
-" source the files living next to this one
-source <sfile>:p:h/mswin.vim
-
 " My own halfway point between behave mswin and xterm
 set mousemodel=popup " right click should popup not extend
 set keymodel=startsel,stopsel " allow shift-<end> style selection
