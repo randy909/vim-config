@@ -9,6 +9,7 @@
 source <sfile>:p:h/settings.vim
 source <sfile>:p:h/mappings.vim
 source <sfile>:p:h/funrc.vim
+source <sfile>:p:h/autocmd.vim
 
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -18,27 +19,11 @@ filetype plugin indent on
 " i.e. it lets surround map S in visual mode
 call yankstack#setup()
 
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-" Also don't do it when the mark is in the first line, that is the default
-" position when opening a file.
-autocmd BufReadPost *
-      \ if line("'\"") > 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
-
-" Make first click in window *not* reposition cursor (might break lastpos
-" plugin) http://www.mail-archive.com/vim_use@googlegroups.com/msg17539.html
-autocmd FocusGained * call getchar(0)
-
 call togglebg#map("<F8>")
 "let g:solarized_contrast="high"
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
-
-autocmd BufNewFile,BufRead *.hjs set filetype=html
 
 " TODO: disabling this for now since I'm printing middle dots instead.
 " I think it should be moved to the molokai syntax file since sometimes this
