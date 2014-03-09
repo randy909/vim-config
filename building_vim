@@ -18,6 +18,11 @@ copy several required .dll's (like libstdc++-6.dll) to vim/vim73 from devkit (mi
 
 
 -- LINUX --
+UPDATE: rather than manually installing the libs below do
+sudo apt-get build-dep vim
+and it will get all the build dependencies to build vim.
+May still need to get alternate versions of things though (e.g. ruby)
+
 (assuming you want ruby 1.9)
 install ruby1.9 (full with dev stuff) via package manager
     note: rails requires the latest version of ruby so you have to install
@@ -26,6 +31,8 @@ install python w/ dev libs (2 instead of 3 is easier)
 install perl w/ dev libs
 check out latest vim code with hg (mercurial)
     hg clone https://vim.googlecode.com/hg/ vim
+or you can clone the git mirror but probably want to shallow clone (repo is 100+MB)
+    git clone --depth 1 https://github.com/b4winckler/vim.git
 cd vim/src
 update Makefile:
     uncomment lines
