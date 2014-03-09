@@ -44,6 +44,9 @@ install a curses library:
     sudo apt-get install libncurses5-dev
 install X11 headers:
     sudo apt-get install xorg-dev
+
+UPDATE: confused, the above approach did not work on stanford vm. This seemed to work though:
+    ./configure --enable-perlinterp --enable-rubyinterp --enable-pythoninterp
 make
 make install
 
