@@ -29,3 +29,12 @@ TagBar has a newer version
 Vorax fights with easymotion to update the status line while executing
 
 space.vim looks awesome
+
+Neobundle might be good to switch to. If it would make it easy to load different
+"profiles" (lists of plugins) depending on some variable I could set that would
+be awesome. I want to be able to have a simple mode for windows that doesn't
+try to load YCM and other heavy lifters.
+https://github.com/Shougo/neobundle.vim
+
+Multiple cursur editing plugin like sublime. Looks neat.
+https://github.com/terryma/vim-multiple-cursors
