@@ -41,3 +41,11 @@ https://github.com/terryma/vim-multiple-cursors
 
 The Q command goes into 'ex mode'. This mode is dumb and is being removed from neovim.
 Even Bram recommends mapping Q to something useful. I should do that at some point...
+
+from Bram:
+map Q gq
+
+This defines a key mapping.  More about that in the next section.
+This defines the "Q" command to do formatting with the "gq" operator.
+This is how it worked before Vim 5.0.  Otherwise the "Q" command
+starts Ex mode, but you will not need it.
