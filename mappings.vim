@@ -73,6 +73,10 @@ vmap <leader>x "+x
 noremap  <leader>a ggVG
 vnoremap <leader>a <C-C>ggVG
 
+" Q normally goes into the frustrating ex mode. Disable.
+" Use for something useful in the future where I use vim again :(
+nnoremap Q <nop>
+
 " TODO: put this somewhere shared. Maybe set it globally.
 if has("unix")
   let s:uname = system("uname")
