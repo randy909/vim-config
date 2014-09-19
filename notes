@@ -38,3 +38,6 @@ https://github.com/Shougo/neobundle.vim
 
 Multiple cursur editing plugin like sublime. Looks neat.
 https://github.com/terryma/vim-multiple-cursors
+
+The Q command goes into 'ex mode'. This mode is dumb and is being removed from neovim.
+Even Bram recommends mapping Q to something useful. I should do that at some point...
