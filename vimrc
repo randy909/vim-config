@@ -5,11 +5,7 @@
 " or for windows:
 "  source $HOME/vimfiles/vimrc
 
-" source the files living next to this one
-source <sfile>:p:h/settings.vim
-source <sfile>:p:h/mappings.vim
-source <sfile>:p:h/funrc.vim
-source <sfile>:p:h/autocmd.vim
+source <sfile>:p:h/boot.vim
 
 execute pathogen#infect()
 execute pathogen#helptags()
