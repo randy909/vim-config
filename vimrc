@@ -7,8 +7,35 @@
 
 source <sfile>:p:h/boot.vim
 
-execute pathogen#infect()
-execute pathogen#helptags()
+call plug#begin()
+Plug 'Chiel92/vim-autoformat'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'Raimondi/delimitMate'
+Plug 'SirVer/ultisnips'
+Plug 'Valloric/YouCompleteMe'
+Plug 'bling/vim-airline'
+Plug 'godlygeek/tabular'
+Plug 'henrik/vim-indexed-search'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'majutsushi/tagbar'
+Plug 'marijnh/tern_for_vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'mileszs/ack.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'randy909/vim-colors-solarized'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/syntastic'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-scripts/hexHighlight.vim'
+Plug 'vim-scripts/keepcase.vim'
+Plug 'wincent/Command-T'
+call plug#end()
+
 filetype plugin indent on
 
 " This makes yankstack play nice with surround
