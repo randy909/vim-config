@@ -62,12 +62,14 @@ set expandtab
 
 " Put backup, undo, and swap files somewhere other that pwd
 " ~ seems to work on windows as well
+let $VIMHOME = expand('<sfile>:p:h')
+" trailing slash prevents name collisions
+execute "set directory=".$VIMHOME."/tmp/swap//,~//,."
 set backup   " keep a backup file
-set directory=~/tmp//,~//,. " trailing slash prevents name collisions
-set backupdir=~/tmp,~/,.
+execute "set backupdir=".$VIMHOME."/tmp/backup,~/,."
 if version >= 703
   set undofile " keep a undo file
-  set undodir=~/tmp,~/,.
+  execute "set undodir=".$VIMHOME."/tmp/undo,~/,."
 endif
 
 " Folding
