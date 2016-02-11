@@ -43,7 +43,7 @@ elseif has ("unix")
 "    Looks similar to ubuntu mono but it's just not as pretty.
 "    set guifont=Menlo:h12
   else
-    set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
   endif
 endif
 
