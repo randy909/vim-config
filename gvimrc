@@ -59,3 +59,5 @@ set t_vb= " don't flash window even in gui mode
 if exists('*HexHighlight()')
   nmap <leader>h :call HexHighlight()<Return>
 endif
+
+colorscheme solarized

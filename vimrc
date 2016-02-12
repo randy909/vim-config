@@ -14,6 +14,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe'
 Plug 'bling/vim-airline'
+Plug 'chriskempson/base16-vim'
 Plug 'godlygeek/tabular'
 Plug 'henrik/vim-indexed-search'
 Plug 'jeetsukumaran/vim-buffergator'
@@ -43,10 +44,10 @@ filetype plugin indent on
 call yankstack#setup()
 
 call togglebg#map("<F8>")
-"let g:solarized_contrast="high"
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+let g:solarized_termcolors=256
+let base16colorspace=256
+colorscheme base16-default
 
 " TODO: disabling this for now since I'm printing middle dots instead.
 " I think it should be moved to the molokai syntax file since sometimes this
