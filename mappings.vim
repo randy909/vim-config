@@ -7,9 +7,11 @@ nnoremap ; :
 vnoremap ; :
 nnoremap q; q:
 
-" replace ; and , with <space> and <shift-space>
+" replace ; and , because i reused those for other stuff
 nnoremap <space> ;
-nnoremap <S-space> ,
+" I can't find a good shortcut for this. buffergator takes this one.
+" I don't think i ever really use it.
+" nnoremap <leader><space> ,
 
 " make alt-j/k go up/down by screen line instead of file line
 nnoremap <A-j> gj
