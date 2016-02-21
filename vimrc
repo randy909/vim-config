@@ -111,17 +111,6 @@ let g:EasyMotion_mapping_f = '<leader>f'
 let g:EasyMotion_mapping_F = '<leader>F'
 let g:EasyMotion_mapping_j = '<leader>j'
 let g:EasyMotion_mapping_k = '<leader>k'
-" doubtful i'll ever use these, we'll see
-let g:EasyMotion_mapping_t = '<leader><leader>t'
-let g:EasyMotion_mapping_T = '<leader><leader>T'
-let g:EasyMotion_mapping_w = '<leader><leader>w'
-let g:EasyMotion_mapping_W = '<leader><leader>W'
-let g:EasyMotion_mapping_b = '<leader><leader>b'
-let g:EasyMotion_mapping_B = '<leader><leader>B'
-let g:EasyMotion_mapping_e = '<leader><leader>e'
-let g:EasyMotion_mapping_E = '<leader><leader>E'
-let g:EasyMotion_mapping_n = '<leader><leader>n'
-let g:EasyMotion_mapping_N = '<leader><leader>N'
 
 let g:buffergator_viewport_split_policy = 'B'
 let g:buffergator_suppress_keymaps = 1
