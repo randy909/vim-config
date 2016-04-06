@@ -15,4 +15,4 @@ autocmd BufReadPost *
 autocmd FocusGained * call getchar(0)
 
 autocmd BufNewFile,BufRead *.hjs set filetype=html
-
+autocmd BufNewFile,BufRead *.gradle set filetype=groovy
