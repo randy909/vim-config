@@ -12,6 +12,8 @@ nnoremap <space> ;
 " I can't find a good shortcut for this. buffergator takes this one.
 " I don't think i ever really use it.
 " nnoremap <leader><space> ,
+" This doesn't work in the terminal
+" nnoremap <S-space> ,
 
 " make alt-j/k go up/down by screen line instead of file line
 nnoremap <A-j> gj
