@@ -8,7 +8,9 @@ fi
 
 if [[ ! -e plugged/YouCompleteMe/third_party/ycmd/ycm_core.so ]] ; then
   echo "Installing YouCompleteMe"
-  python plugged/YouCompleteMe/install.py
+  pushd plugged/YouCompleteMe
+  python install.py
+  popd
 fi
 
 if [[ ! -e plugged/Command-T/ruby/command-t/ext.so ]] ; then
