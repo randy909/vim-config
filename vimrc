@@ -47,7 +47,7 @@ call togglebg#map("<F8>")
 set background=dark
 let g:solarized_termcolors=256
 let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-default-dark
 
 " TODO: disabling this for now since I'm printing middle dots instead.
 " I think it should be moved to the molokai syntax file since sometimes this
