@@ -105,6 +105,10 @@ set wildignore+=*.class,*.o,*.obj,*/target/*,node_modules,dist
 " or figure out how to use $HOME/bin from the 'let blah' variables
 "  let g:ackprg="perl C:\\cygwin\\home\\p054441\\bin\\ack -H --nocolor --nogroup --column"
 let g:ackprg="ack -H --nocolor --nogroup --column"
+" use ag instead of ack if it's available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Easymotion mappings
 let g:EasyMotion_mapping_f = '<leader>f'
