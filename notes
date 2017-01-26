@@ -51,3 +51,16 @@ This is how it worked before Vim 5.0.  Otherwise the "Q" command
 starts Ex mode, but you will not need it.
 
 Try using vimswitch (see github) to switch vim configs easliy
+
+=== Javascript/Html/Web ===
+
+Syntastic will use tidy for html but remember to brew install tidy to get a
+version of tidy from this century. This will fix syntastic not understanding html5.
+Use :SyntasticInfo to what syntastic is doing for the current file.
+
+Great article on configuring vim/neovim for js
+https://davidosomething.com/blog/vim-for-javascript/
+
+Nice example vimrc with good js/web plugins
+https://isotope11.com/blog/rebuilding-my-vim-setup-from-scratch
+
