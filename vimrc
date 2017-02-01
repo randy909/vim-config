@@ -177,5 +177,8 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+" Enable jsx in files without .jsx extension
+let g:jsx_ext_required = 0
+
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
