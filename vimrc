@@ -19,6 +19,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'godlygeek/tabular'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'henrik/vim-indexed-search'
+Plug 'jamessan/vim-gnupg'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'majutsushi/tagbar'
 Plug 'maxbrunsfeld/vim-yankstack'
@@ -179,6 +180,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Enable jsx in files without .jsx extension
 let g:jsx_ext_required = 0
+
+" gnupg config
+let g:GPGPreferArmor=1
 
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
