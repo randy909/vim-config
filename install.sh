@@ -10,10 +10,9 @@ if [[ ! -e plugged/YouCompleteMe/third_party/ycmd/ycm_core.so ]] ; then
   popd
 fi
 
-if [[ ! -e plugged/Command-T/ruby/command-t/ext.so ]] ; then
+if [[ ! -e plugged/Command-T/ruby/command-t/ext/command-t/ext.bundle ]] ; then
   echo "Compiling Command-T"
-  pushd plugged/Command-T/ruby/command-t
-  ruby extconf.rb
-  make
+  pushd plugged/Command-T
+  rake make
   popd
 fi
