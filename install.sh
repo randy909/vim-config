@@ -6,7 +6,7 @@ vim +PlugInstall +qall > /dev/null 2>&1
 if [[ ! -e plugged/YouCompleteMe/third_party/ycmd/ycm_core.so ]] ; then
   echo "Compiling YouCompleteMe"
   pushd plugged/YouCompleteMe
-  python install.py
+  python3 install.py
   popd
 fi
 
