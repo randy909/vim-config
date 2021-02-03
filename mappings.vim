@@ -62,6 +62,7 @@ nnoremap <D-9> 9gt
 " inoremap <C-k> <C-p>
 
 " leader-c is copy to clipboard
+" leader-c is copy to clipboard (<leader>y is used for yankstack)
 nmap <leader>c "+y
 vmap <leader>c "+y
 
@@ -77,9 +78,10 @@ vmap <leader>x "+x
 noremap  <leader>a ggVG
 vnoremap <leader>a <C-C>ggVG
 
-" Q normally goes into the frustrating ex mode. Disable.
-" Use for something useful in the future where I use vim again :(
-nnoremap Q <nop>
+" Q normally goes into the frustrating ex mode
+" Repurpose to apply the 'q' macro
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
 
 " TODO: put this somewhere shared. Maybe set it globally.
 if has("unix")
