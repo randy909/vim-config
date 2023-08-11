@@ -8,4 +8,5 @@ source <sfile>:p:h/boot.vim
 
 colorscheme molokai
 
-syntax off
+" dunno why this is here, I want sytax on
+" syntax off

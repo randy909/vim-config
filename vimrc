@@ -5,6 +5,9 @@
 " or for windows:
 "  source $HOME/vimfiles/vimrc
 
+" Yankstack wants to initialize itself before I set my own mappings for 'y'.
+" Maybe this can just come later or maybe the mappings section should be
+" broken out of boot and called after the yankstack#setup() line below
 source <sfile>:p:h/boot.vim
 
 call plug#begin()

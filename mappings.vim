@@ -78,10 +78,19 @@ vmap <leader>x "+x
 noremap  <leader>a ggVG
 vnoremap <leader>a <C-C>ggVG
 
+" Paste from buffer zero which allows pasting the same buffer repeatedly
+vnoremap <leader>0 "0p
+
 " Q normally goes into the frustrating ex mode
 " Repurpose to apply the 'q' macro
 nnoremap Q @q
 vnoremap Q :norm @q<cr>
+
+" Y normally is the same as yy
+" Make it behave similarly to D and C
+" The yankstack docs say you should put 'call yankstack#setup()' in the vimrc
+" before you do this, not sure the order here...
+nmap Y y$
 
 " TODO: put this somewhere shared. Maybe set it globally.
 if has("unix")
