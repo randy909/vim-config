@@ -14,8 +14,8 @@ call plug#begin()
 Plug 'Chiel92/vim-autoformat'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'SirVer/ultisnips'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'b4winckler/vim-angry'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
@@ -177,9 +177,9 @@ let g:airline_symbols.linenr = ''
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Ultisnips conf
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Enable jsx in files without .jsx extension
 let g:jsx_ext_required = 0
