@@ -1,12 +1,13 @@
 #!/bin/bash
 
+# This script seems to hang even on the install step on windows so don't use it
+if [[ $(uname) == MINGW* ]]; then
+  echo "Don't use this script in mingw, just run :PlugInstall from vim"
+  exit -1
+fi
+
 echo "Installing/Updating plugins"
 vim +PlugInstall +qall > /dev/null 2>&1
-
-if [ "$(uname)" == "MINGW*" ]; then
-  echo "Skipping ycm and command-t for mingw"
-  exit 0
-fi
 
 if [[ ! -e plugged/YouCompleteMe/third_party/ycmd/ycm_core.so ]] ; then
   echo "Compiling YouCompleteMe"
