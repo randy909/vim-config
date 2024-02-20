@@ -22,7 +22,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'godlygeek/tabular'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'henrik/vim-indexed-search'
-Plug 'jamessan/vim-gnupg'
+" Plug 'jamessan/vim-gnupg'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'majutsushi/tagbar'
 Plug 'maxbrunsfeld/vim-yankstack'
@@ -35,7 +35,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'sickill/vim-pasta'
 Plug 'sjl/gundo.vim'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -43,7 +43,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/hexHighlight.vim'
 Plug 'vim-scripts/keepcase.vim'
-Plug 'wincent/Command-T'
+" Plug 'wincent/Command-T'
 call plug#end()
 
 filetype plugin indent on
@@ -103,10 +103,10 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\!\|£\|\$\|_\|["'']\s*\S\)'
 let delimitMate_expand_cr = 1
 
 " CommandT prefs
-let g:CommandTMatchWindowReverse=1
-let g:CommandTMaxHeight=30
-let g:CommandTCancelMap='<esc>'
-set wildignore+=*.class,*.o,*.obj,*/target/*,node_modules,dist
+"let g:CommandTMatchWindowReverse=1
+"let g:CommandTMaxHeight=30
+"let g:CommandTCancelMap='<esc>'
+"set wildignore+=*.class,*.o,*.obj,*/target/*,node_modules,dist
 
 " look for ack in home/bin
 " TODO: figure out a good system for having ack installed somwhere this plugin
@@ -185,7 +185,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 let g:jsx_ext_required = 0
 
 " gnupg config
-let g:GPGPreferArmor=1
+"let g:GPGPreferArmor=1
 
 " TODO: figure out how to run unit tests without exiting vim with quickfix etc.
 
